@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="orilo-a3-right" x1="58" y1="17" x2="82" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#58D7FF"/>
+      <stop offset="1" stop-color="#078DFF"/>
+    </linearGradient>
+  </defs>
+  <path d="M18 57A34 34 0 0 1 42 17" stroke="#078DFF" stroke-width="11" stroke-linecap="round"/>
+  <path d="M58 17A34 34 0 0 1 82 57" stroke="url(#orilo-a3-right)" stroke-width="11" stroke-linecap="round"/>
+  <path d="M25 72A34 34 0 0 0 75 72" stroke="#078DFF" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="50" cy="49" r="12" fill="#D8FB65"/>
+</svg>
