@@ -28,12 +28,14 @@ export function ConnectiveAppModule() {
               <span className="builder-hammer">
                 <span>🔨</span>
               </span>
-              <span className="builder-stage">
-                <span className="builder-hog">{"\u{1F477}\u{1F3FC}"}</span>
-              </span>
             </span>
             <div className="app-module-copy">
-              <p className="app-status">{connectiveApp.status}</p>
+              <span className="app-status-wrap">
+                <span className="builder-stage" aria-hidden="true">
+                  <span className="builder-hog">{"\u{1F477}\u{1F3FC}"}</span>
+                </span>
+                <span className="app-status">{connectiveApp.status}</span>
+              </span>
               <h3 className="display mt-3 text-2xl text-fg md:text-4xl">
                 {connectiveApp.name}
               </h3>

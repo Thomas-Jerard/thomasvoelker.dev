@@ -1,47 +1,114 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { education, site } from "@/data/site";
+import { CopyEmail } from "@/components/copy-email";
+import { LogoBelt } from "@/components/logo-belt";
+import { about, companies, craft, hobbies, site } from "@/data/site";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
   head: () => ({
-    meta: [{ title: "About — Thomas Voelker" }],
+    meta: [
+      { title: "About — Thomas Voelker" },
+      {
+        name: "description",
+        content:
+          "Thomas Jerard Voelker is a founder, developer, and product builder in Greensburg, Pennsylvania. He leads 7homais Limited and Orilo.",
+      },
+    ],
   }),
 });
 
 function AboutPage() {
   return (
-    <main id="main" className="page-wrap py-16 md:py-24">
-      <p className="kicker">About</p>
-      <h1 className="display mt-3 text-4xl text-fg md:text-6xl">Who I am.</h1>
-      <div className="mt-10 grid gap-10 md:grid-cols-12">
-        <div className="portrait-frame md:col-span-5">
-          <img
-            src={site.portrait.src}
-            alt={site.portrait.alt}
-            className="shot-portrait w-full object-cover"
-          />
+    <main id="main">
+      <section className="page-wrap grid items-end gap-8 py-16 md:grid-cols-12 md:gap-10 md:py-24">
+        <div className="md:col-span-5">
+          <div className="portrait-frame portrait-motion">
+            <img
+              src={site.portrait.src}
+              alt={site.portrait.alt}
+              className="shot-portrait w-full object-cover"
+            />
+          </div>
+          <LogoBelt />
         </div>
-        <div className="md:col-span-7 space-y-4 text-base leading-relaxed text-muted md:text-lg">
-          <p className="text-fg">{site.tagline}</p>
-          <p>
-            I lead {site.orilo.company}, the company behind Orilo. The studio
-            is founder-led and agent-backed: design, upkeep, hosting, and SEO
-            for businesses that need a real website.
-          </p>
-          <p>
-            Before that I trained AI models at Mercor, worked as a PCT on a
-            cardiac PCU at UPMC, and spent time in operations at ADP and
-            Capstone Logistics.
-          </p>
-          <p>
-            {education.school}, {education.degree}. {education.line}.
-          </p>
-          <p>
-            Independently I’m building connective software for gyms and their
-            members — still locked while it ships.
-          </p>
+        <div className="md:col-span-7">
+          <p className="kicker">About</p>
+          <h1 className="display mt-3 text-4xl text-fg md:text-6xl">Who I am.</h1>
+          <div className="mt-6 max-w-xl space-y-4 text-base leading-relaxed text-muted md:text-lg">
+            <p className="text-fg">{about.lead}</p>
+            <p>{about.studio}</p>
+            <p>{about.path}</p>
+            <p>{about.school}</p>
+            <p>{about.product}</p>
+            <p className="text-sm">{site.location}</p>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section className="border-t border-border py-16 md:py-24">
+        <div className="page-wrap">
+          <p className="kicker">What I do</p>
+          <h2 className="display mt-3 text-3xl text-fg md:text-5xl">The work.</h2>
+          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-fg md:grid-cols-4 md:text-base">
+            {craft.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16 md:py-24">
+        <div className="page-wrap">
+          <p className="kicker">Companies</p>
+          <h2 className="display mt-3 text-3xl text-fg md:text-5xl">
+            The companies I founded and run.
+          </h2>
+          <ul className="mt-10 grid gap-10 md:grid-cols-2">
+            {companies.map((company) => (
+              <li key={company.name}>
+                <p className="kicker">{company.status}</p>
+                <h3 className="display mt-2 text-3xl text-fg">{company.name}</h3>
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-muted md:text-base">
+                  {company.body}
+                </p>
+                <p className="mt-4 text-sm text-fg">{company.role}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16 md:py-24">
+        <div className="page-wrap">
+          <p className="kicker">Hobbies</p>
+          <h2 className="display mt-3 max-w-2xl text-3xl text-fg md:text-5xl">
+            What keeps me moving, competing, and recharging outside of work.
+          </h2>
+          <ul className="mt-10 grid gap-8 md:grid-cols-3">
+            {hobbies.map((hobby) => (
+              <li key={hobby.id}>
+                <div className="project-shot shot-wide">
+                  <img src={hobby.image} alt={hobby.alt} />
+                </div>
+                <h3 className="mt-4 text-lg font-medium text-fg">{hobby.name}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-muted">{hobby.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16 md:py-24">
+        <div className="page-wrap">
+          <p className="kicker">Next</p>
+          <h2 className="display text-3xl text-fg md:text-5xl">
+            If the work is a fit, email me.
+          </h2>
+          <div className="mt-8">
+            <CopyEmail />
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

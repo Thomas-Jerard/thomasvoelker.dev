@@ -123,3 +123,64 @@ export const education = {
   image: "/images/ohio/college-green.jpg",
   alt: "College Green at Ohio University, Cutler Hall at the end of the brick walk",
 } as const;
+
+export const about = {
+  lead: "Developer, product builder, and entrepreneur. I build useful digital experiences and lead 7homais Limited — the company behind Orilo.",
+  studio:
+    "I lead 7homais Limited, the company behind Orilo. The studio is founder-led and agent-backed: design, upkeep, hosting, and SEO for businesses that need a real website.",
+  path: "Before that I trained AI models at Mercor, worked as a PCT on a cardiac PCU at UPMC, and spent time in operations at ADP and Capstone Logistics.",
+  school: "Ohio University, B.S. Biology, honors. Proud Bobcat.",
+  product:
+    "Independently I’m building connective software for gyms and their members — still locked while it ships.",
+} as const;
+
+export const craft = [
+  "Web development",
+  "Product development",
+  "UI / UX design",
+  "Creative direction",
+  "Brand systems",
+  "Managed websites",
+  "Fitness",
+  "Health & fitness technology",
+] as const;
+
+export const companies = [
+  {
+    name: "7homais Limited",
+    status: "Operating",
+    role: "Owner · Founder · CEO",
+    body: "The product company behind Orilo and independent digital ventures.",
+  },
+  {
+    name: "Orilo",
+    status: "Operating",
+    role: "Owner · Founder · CEO",
+    body: "A managed web studio creating and caring for high-quality websites for businesses and creators.",
+    href: "https://orilo.io/",
+  },
+] as const;
+
+export const hobbies = [
+  {
+    id: "bodybuilding",
+    name: "Competitive bodybuilding",
+    body: "Training with structure, discipline, and a long view of progress.",
+    image: "/images/hobbies/bodybuilding.jpg",
+    alt: "Thomas posing during a bodybuilding competition",
+  },
+  {
+    id: "baseball",
+    name: "Baseball",
+    body: "The pace, detail, and strategy of the game—from college baseball to the majors.",
+    image: "/images/hobbies/baseball.jpg",
+    alt: "Baseball gloves resting along a stadium rail",
+  },
+  {
+    id: "fortnite",
+    name: "Fortnite",
+    body: "A competitive reset built around fast decisions, mechanics, and squad play.",
+    image: "/images/hobbies/gaming.jpg",
+    alt: "A blue and purple illuminated gaming room",
+  },
+] as const;

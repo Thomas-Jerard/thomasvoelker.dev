@@ -14,6 +14,7 @@ import {
   featuredClients,
   featuredVenture,
   oriloServices,
+  practice,
   site,
 } from "@/data/site";
 import { personJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -187,16 +188,26 @@ function ClientWork() {
 function Practice() {
   return (
     <section className="border-t border-border py-16 md:py-24">
-      <div className="page-wrap grid gap-8 md:grid-cols-12 md:items-end">
-        <div className="md:col-span-5">
-          <p className="kicker">04 — Practice</p>
-          <h2 className="display mt-3 text-3xl text-fg md:text-4xl text-balance">
-            Daily work in large language models, agentic frameworks, and cloud agents.
-          </h2>
+      <div className="page-wrap">
+        <div className="grid gap-8 md:grid-cols-12 md:items-end">
+          <div className="md:col-span-5">
+            <p className="kicker">04 — Practice</p>
+            <h2 className="display mt-3 text-3xl text-fg md:text-4xl text-balance">
+              Daily work in large language models, agentic frameworks, and cloud agents.
+            </h2>
+          </div>
+          <div className="md:col-span-7">
+            <Groundhogs />
+          </div>
         </div>
-        <div className="md:col-span-7">
-          <Groundhogs />
-        </div>
+        <ul className="mt-10 grid gap-6 md:grid-cols-3">
+          {practice.map((item) => (
+            <li key={item.id}>
+              <p className="text-sm font-medium text-fg">{item.title}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{item.body}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -220,6 +231,9 @@ function OhioChapter() {
           </h2>
           <p className="mt-4 max-w-lg text-base md:text-lg" style={{ color: "var(--color-ohio-fg)" }}>
             {education.school} · {education.degree}
+          </p>
+          <p className="mt-3 max-w-lg text-sm md:text-base" style={{ color: "var(--color-ohio-fg)" }}>
+            {education.bio}
           </p>
         </div>
       </div>
