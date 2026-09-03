@@ -21,18 +21,20 @@ function AboutPage() {
           { name: "About", path: "/about" },
         ])}
       />
-      <section className="page-wrap grid items-end gap-8 py-16 md:grid-cols-12 md:gap-10 md:py-24">
-        <div className="md:col-span-5">
-          <div className="portrait-frame portrait-motion">
+      <section className="about-hero page-wrap">
+        <div className="about-media">
+          <div className="portrait-frame about-portrait">
             <img
-              src={site.portrait.src}
+              src={site.portrait.square}
               alt={site.portrait.alt}
-              className="shot-portrait w-full object-cover"
+              width={800}
+              height={800}
+              className="about-shot"
             />
           </div>
           <LogoBelt />
         </div>
-        <div className="md:col-span-7">
+        <div className="about-copy">
           <p className="kicker">About</p>
           <h1 className="display mt-3 text-4xl text-fg md:text-6xl">Who I am.</h1>
           <div className="mt-6 max-w-xl space-y-4 text-base leading-relaxed text-muted md:text-lg">

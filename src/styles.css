@@ -238,6 +238,39 @@ html.light .app-lock img {
 .shot-wide { aspect-ratio: 16 / 10; }
 .shot-hero { aspect-ratio: 16 / 9; }
 .shot-portrait { aspect-ratio: 4 / 5; }
+
+.about-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 2.25rem 0 3rem;
+}
+.about-copy { order: 0; }
+.about-media { order: 1; min-width: 0; }
+.about-portrait {
+  width: min(15.5rem, 72vw);
+  overflow: hidden;
+  background: #111;
+}
+.about-shot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 12%;
+}
+@media (min-width: 768px) {
+  .about-hero {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    align-items: end;
+    gap: 2.5rem;
+    padding: 6rem 0;
+  }
+  .about-copy,
+  .about-media { order: 0; }
+  .about-portrait { width: 100%; }
+}
 .project-shot img {
   width: 100%;
   height: 100%;
