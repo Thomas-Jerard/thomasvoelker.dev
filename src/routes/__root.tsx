@@ -23,8 +23,9 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "canonical", href: "https://thomasvoelker.dev/" },
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-      { rel: "apple-touch-icon", href: "/images/profile/thomas-square.jpg" },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg?v=tv1" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png?v=tv1" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
     ],

@@ -32,8 +32,7 @@ Black / white / grey. Square corners. No neon. No pill capsules.
   same baseline, muted grey, spacing expands with the word.
 - Hero line: “I build cool stuff with AI”
 - CTAs: **Email Me** / **What am I up to?**
-- Portrait is the favicon and header mark. Belt cycles **under the photo**,
-  not full-bleed.
+- Portrait is the header mark video (cowboy loop). Favicon is the TV monogram.
 - Belt label: **Where I've Been**. Workplaces only, native color, infinite
   loop, even gaps, no grey borders: Orilo, Mercor, UPMC, ADPIA, Capstone.
   Grok is **not** in the belt.

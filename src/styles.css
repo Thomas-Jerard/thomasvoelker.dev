@@ -215,11 +215,21 @@ html.light .app-lock img {
 }
 .portrait-mark {
   display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
   overflow: hidden;
-  background: var(--color-surface-soft);
+  flex-shrink: 0;
+  background: #000;
   border-radius: 999px;
 }
-.portrait-mark img { width: 100%; height: 100%; object-fit: cover; }
+.portrait-mark img,
+.portrait-mark video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  pointer-events: none;
+}
 
 .project-shot {
   background: var(--color-surface-soft);
