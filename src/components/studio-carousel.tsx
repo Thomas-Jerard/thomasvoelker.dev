@@ -76,7 +76,7 @@ export function StudioCarousel() {
                   className="studio-face group block no-underline"
                 >
                   <div className="project-shot shot-wide">
-                    <img src={client.image} alt="" />
+                    <img src={client.image} alt={`${client.name} website`} />
                   </div>
                 </Link>
               ) : (
@@ -87,7 +87,7 @@ export function StudioCarousel() {
                   aria-label={`Show ${client.name}`}
                 >
                   <div className="project-shot shot-wide">
-                    <img src={client.image} alt="" />
+                    <img src={client.image} alt={`${client.name} website`} />
                   </div>
                 </button>
               )}

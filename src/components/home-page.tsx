@@ -17,13 +17,14 @@ import {
   practice,
   site,
 } from "@/data/site";
-import { personJsonLd, websiteJsonLd } from "@/lib/seo";
+import { personJsonLd, websiteJsonLd, organizationJsonLd } from "@/lib/seo";
 
 export function HomePage() {
   return (
     <main id="main">
       <JsonLd data={personJsonLd()} />
       <JsonLd data={websiteJsonLd()} />
+      <JsonLd data={organizationJsonLd()} />
       <Hero />
       <OriloChapter />
       <ClientWork />

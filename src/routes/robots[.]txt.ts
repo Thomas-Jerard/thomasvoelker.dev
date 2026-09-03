@@ -5,8 +5,15 @@ export const Route = createFileRoute("/robots.txt")({
     handlers: {
       GET: async () =>
         new Response(
-          "User-agent: *\nAllow: /\nSitemap: https://thomasvoelker.dev/sitemap.xml\n",
-          { headers: { "Content-Type": "text/plain" } },
+          [
+            "User-agent: *",
+            "Allow: /",
+            "Disallow: /__grok/",
+            "",
+            "Sitemap: https://thomasvoelker.dev/sitemap.xml",
+            "",
+          ].join("\n"),
+          { headers: { "Content-Type": "text/plain; charset=utf-8" } },
         ),
     },
   },

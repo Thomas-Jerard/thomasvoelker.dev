@@ -1,25 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CopyEmail } from "@/components/copy-email";
+import { JsonLd } from "@/components/json-ld";
 import { LogoBelt } from "@/components/logo-belt";
 import { about, companies, craft, hobbies, site } from "@/data/site";
+import { breadcrumbJsonLd, pageHead, pages, personJsonLd, webPageJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
   component: AboutPage,
-  head: () => ({
-    meta: [
-      { title: "About — Thomas Voelker" },
-      {
-        name: "description",
-        content:
-          "Thomas Jerard Voelker is a founder, developer, and product builder in Greensburg, Pennsylvania. He leads 7homais Limited and Orilo.",
-      },
-    ],
-  }),
+  head: () => pageHead(pages.about),
 });
 
 function AboutPage() {
   return (
     <main id="main">
+      <JsonLd data={personJsonLd()} />
+      <JsonLd data={webPageJsonLd(pages.about.path, pages.about.title, pages.about.description)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
       <section className="page-wrap grid items-end gap-8 py-16 md:grid-cols-12 md:gap-10 md:py-24">
         <div className="md:col-span-5">
           <div className="portrait-frame portrait-motion">

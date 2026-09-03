@@ -20,7 +20,7 @@ export function ConnectiveAppModule() {
           <div className="app-module-lead">
             <span className="app-lock-wrap" aria-hidden="true">
               <span className="app-lock">
-                <img src={connectiveApp.icon} alt="" width={88} height={88} />
+                <img src={connectiveApp.icon} alt="Connective Fitness APP" width={88} height={88} />
                 <i className="app-lock-badge">
                   <Lock className="size-3.5" />
                 </i>

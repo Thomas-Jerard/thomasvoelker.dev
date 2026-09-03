@@ -20,9 +20,9 @@ export const Route = createRootRoute({
       },
       { name: "theme-color", content: "#050505" },
       { name: "author", content: "Thomas Jerard Voelker" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
     ],
     links: [
-      { rel: "canonical", href: "https://thomasvoelker.dev/" },
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg?v=tv1" },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png?v=tv1" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },

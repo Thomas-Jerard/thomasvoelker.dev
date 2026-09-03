@@ -1,16 +1,25 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { connectiveApp, featuredClients, featuredVenture } from "@/data/site";
+import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
+import { connectiveApp, featuredClients, featuredVenture } from "@/data/site";
+import { breadcrumbJsonLd, pageHead, pages, webPageJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/work/")({
   component: WorkIndex,
-  head: () => ({ meta: [{ title: "Work — Thomas Voelker" }] }),
+  head: () => pageHead(pages.work),
 });
 
 function WorkIndex() {
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
+      <JsonLd data={webPageJsonLd(pages.work.path, pages.work.title, pages.work.description)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+        ])}
+      />
       <SectionHeading
         index="Work"
         label="Selected"
@@ -20,7 +29,7 @@ function WorkIndex() {
         <li>
           <Link to="/work/$slug" params={{ slug: featuredVenture.slug }} className="group block no-underline">
             <div className="project-shot shot-wide">
-              <img src={featuredVenture.image} alt="" />
+              <img src={featuredVenture.image} alt="Orilo website" />
             </div>
             <p className="kicker mt-4">Venture</p>
             <p className="mt-2 text-2xl text-fg">{featuredVenture.name}</p>
@@ -30,7 +39,7 @@ function WorkIndex() {
         <li>
           <Link to="/work/$slug" params={{ slug: "connective-fitness" }} className="group block no-underline">
             <div className="project-shot shot-wide flex items-center justify-center bg-surface-soft">
-              <img src={connectiveApp.icon} alt="" className="h-20 w-20 object-contain" />
+              <img src={connectiveApp.icon} alt="Connective Fitness APP icon" className="h-20 w-20 object-contain" />
             </div>
             <p className="kicker mt-4">Independent product</p>
             <p className="mt-2 text-2xl text-fg">{connectiveApp.name}</p>
@@ -41,7 +50,7 @@ function WorkIndex() {
           <li key={client.slug}>
             <a href={client.url} target="_blank" rel="noreferrer" className="group block no-underline">
               <div className="project-shot shot-wide">
-                <img src={client.image} alt="" />
+                <img src={client.image} alt={`${client.name} website`} />
               </div>
               <p className="kicker mt-4">Orilo client</p>
               <p className="mt-2 text-2xl text-fg">{client.name}</p>

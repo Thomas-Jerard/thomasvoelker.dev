@@ -1,17 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CopyEmail } from "@/components/copy-email";
+import { JsonLd } from "@/components/json-ld";
 import { site } from "@/data/site";
+import { breadcrumbJsonLd, pageHead, pages, webPageJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   component: ContactPage,
-  head: () => ({
-    meta: [{ title: "Contact — Thomas Voelker" }],
-  }),
+  head: () => pageHead(pages.contact),
 });
 
 function ContactPage() {
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
+      <JsonLd data={webPageJsonLd(pages.contact.path, pages.contact.title, pages.contact.description)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
       <p className="kicker">Contact</p>
       <h1 className="display mt-3 max-w-2xl text-4xl text-fg md:text-6xl">
         Email is the fastest way.

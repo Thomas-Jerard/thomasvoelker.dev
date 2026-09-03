@@ -297,16 +297,38 @@ export function titleFromDocument(html) {
   return match ? unescapeHtml(match[1]).trim() : "";
 }
 
+export function metaContentFromDocument(html, name) {
+  const tags = String(html ?? "").match(/<meta\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    if (new RegExp(`\\bname\\s*=\\s*["']${name}["']`, "i").test(tag)) {
+      const content = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i);
+      if (content) return unescapeHtml(content[1]).trim();
+    }
+  }
+  return "";
+}
+
+export function canonicalFromDocument(html) {
+  const tags = String(html ?? "").match(/<link\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    if (/\brel\s*=\s*["']canonical["']/i.test(tag)) {
+      const href = tag.match(/\bhref\s*=\s*["']([^"']*)["']/i);
+      if (href) return href[1].trim();
+    }
+  }
+  return "";
+}
+
 export function resolveOgTitle(
   site = {},
   appName = DEFAULT_APP_NAME,
   host = "",
   documentTitle = "",
 ) {
-  const fromSite = String(site.title ?? "").trim();
-  if (fromSite) return fromSite;
   const fromDoc = String(documentTitle ?? "").trim();
   if (fromDoc) return fromDoc;
+  const fromSite = String(site.title ?? "").trim();
+  if (fromSite) return fromSite;
   const fromHost = appNameFromHost(host);
   if (fromHost && fromHost !== DEFAULT_APP_NAME) return fromHost;
   const fromArg = String(appName ?? "").trim();
@@ -339,16 +361,25 @@ export function grokOgHeadTags({
   site = {},
   documentTitle = "",
   cwd = process.cwd(),
+  description: descriptionOverride = "",
+  url = "",
 } = {}) {
   const title = resolveOgTitle(site, appName, host, documentTitle);
   const publicHost = resolvePublicHost(host);
   const tags = [
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta property="og:title" content="${escapeHtml(title)}">`,
+    `<meta name="twitter:title" content="${escapeHtml(title)}">`,
+    `<meta property="og:site_name" content="${escapeHtml(String(site.title || title))}">`,
+    `<meta property="og:type" content="website">`,
   ];
-  const description = String(site.description ?? "").trim();
+  if (url) {
+    tags.push(`<meta property="og:url" content="${escapeHtml(url)}">`);
+  }
+  const description = String(descriptionOverride || site.description || "").trim();
   if (description) {
     tags.push(`<meta property="og:description" content="${escapeHtml(description)}">`);
+    tags.push(`<meta name="twitter:description" content="${escapeHtml(description)}">`);
   }
   if (String(site.type ?? "").toLowerCase() === "x:game") {
     tags.push(`<meta property="og:type" content="x:game">`);
@@ -426,6 +457,8 @@ export function injectGrokPwaHead(html, ctx = {}) {
   if (typeof html !== "string") return html;
   const { site, projectId, creator, creatorId, host, cwd } = normalizeHeadContext(ctx);
   const documentTitle = titleFromDocument(html);
+  const pageDescription = metaContentFromDocument(html, "description");
+  const canonical = canonicalFromDocument(html);
   const appName = resolveOgTitle(
     site,
     ctx.appName ?? DEFAULT_APP_NAME,
@@ -444,7 +477,15 @@ export function injectGrokPwaHead(html, ctx = {}) {
 
   next = insertAfterHeadOpen(
     next,
-    grokOgHeadTags({ host, appName, site, documentTitle, cwd }).join(""),
+    grokOgHeadTags({
+      host,
+      appName,
+      site,
+      documentTitle,
+      cwd,
+      description: pageDescription,
+      url: canonical,
+    }).join(""),
   );
 
   if (!next.includes("/grok-app-builder/extensions.js")) {

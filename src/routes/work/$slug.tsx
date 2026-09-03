@@ -1,8 +1,16 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import { connectiveApp, featuredClients, featuredVenture, oriloServices, site } from "@/data/site";
+import { JsonLd } from "@/components/json-ld";
 import { Button } from "@/components/ui/button";
 import { OriloBuildPreview } from "@/components/orilo-build-preview";
+import { connectiveApp, featuredClients, featuredVenture, oriloServices, site } from "@/data/site";
+import {
+  breadcrumbJsonLd,
+  clientPage,
+  pageHead,
+  pages,
+  webPageJsonLd,
+} from "@/lib/seo";
 
 export const Route = createFileRoute("/work/$slug")({
   component: WorkSlug,
@@ -12,6 +20,12 @@ export const Route = createFileRoute("/work/$slug")({
     const client = featuredClients.find((c) => c.slug === params.slug);
     if (!client) throw notFound();
     return { kind: "client" as const, client };
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData) return {};
+    if (loaderData.kind === "orilo") return pageHead(pages.orilo);
+    if (loaderData.kind === "app") return pageHead(pages.connective);
+    return pageHead(clientPage(loaderData.client.slug)!);
   },
 });
 
@@ -25,6 +39,14 @@ function WorkSlug() {
 function OriloPage() {
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
+      <JsonLd data={webPageJsonLd(pages.orilo.path, pages.orilo.title, pages.orilo.description)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+          { name: "Orilo", path: "/work/orilo" },
+        ])}
+      />
       <p className="kicker">Venture · Live</p>
       <h1 className="display mt-3 text-4xl text-fg md:text-6xl">{featuredVenture.name}</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted">{featuredVenture.summary}</p>
@@ -54,6 +76,16 @@ function OriloPage() {
 function AppPage() {
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
+      <JsonLd
+        data={webPageJsonLd(pages.connective.path, pages.connective.title, pages.connective.description)}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+          { name: "Connective Fitness APP", path: "/work/connective-fitness" },
+        ])}
+      />
       <p className="kicker">{connectiveApp.status}</p>
       <h1 className="display mt-3 text-4xl text-fg md:text-6xl">{connectiveApp.name}</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted">{connectiveApp.summary}</p>
@@ -70,13 +102,22 @@ function AppPage() {
 }
 
 function ClientPage({ client }: { client: (typeof featuredClients)[number] }) {
+  const seo = clientPage(client.slug)!;
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
+      <JsonLd data={webPageJsonLd(seo.path, seo.title, seo.description)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+          { name: client.name, path: seo.path },
+        ])}
+      />
       <p className="kicker">Orilo client · Live</p>
       <h1 className="display mt-3 text-4xl text-fg md:text-6xl">{client.name}</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted">{client.blurb}</p>
       <div className="project-shot shot-hero mt-10">
-        <img src={client.image} alt="" />
+        <img src={client.image} alt={`${client.name} website`} />
       </div>
       <div className="mt-8">
         <Button asChild>
