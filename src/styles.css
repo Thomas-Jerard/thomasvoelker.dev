@@ -779,14 +779,27 @@ html.light .app-lock img {
   .groundhog-slot { height: 7.75rem; }
   .groundhog img { width: 3.6rem; height: 3.6rem; }
   .ohio-chapter {
-    height: 34rem;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+  }
+  .ohio-chapter > .ohio-bg {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 22.5rem;
+    object-fit: cover;
+    object-position: 88% 36%;
   }
   .ohio-copy {
-    min-height: 34rem;
-    padding: 2.1rem 0 1.6rem;
+    height: auto;
+    min-height: 0;
+    align-items: flex-start;
+    padding: 1.35rem 0 2rem;
+    background: #07090c;
   }
   .ohio-copy .page-wrap { padding-right: 0; }
-  .ohio-chapter > .ohio-bg { object-position: center 48%; }
   .logo-belt { padding-top: 0.35rem; }
   .logo-belt .kicker { margin-bottom: 0.45rem; }
   .logo-belt-set { gap: 1.35rem; padding-right: 1.35rem; }
