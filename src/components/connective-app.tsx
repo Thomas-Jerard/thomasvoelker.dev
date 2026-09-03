@@ -31,7 +31,7 @@ export function ConnectiveAppModule() {
             </span>
             <div className="app-module-copy">
               <span className="app-status-wrap">
-                <span className="builder-stage" aria-hidden="true">
+                <span className="builder-stage builder-stage-status" aria-hidden="true">
                   <span className="builder-hog">{"\u{1F477}\u{1F3FC}"}</span>
                 </span>
                 <span className="app-status">{connectiveApp.status}</span>
@@ -45,8 +45,13 @@ export function ConnectiveAppModule() {
             </div>
           </div>
           <ul className="app-module-users">
-            {connectiveApp.users.map((item) => (
-              <li key={item.title}>
+            {connectiveApp.users.map((item, i) => (
+              <li key={item.title} className={i === 0 ? "app-user-gym" : undefined}>
+                {i === 0 ? (
+                  <span className="builder-stage builder-stage-gym" aria-hidden="true">
+                    <span className="builder-hog">{"\u{1F477}\u{1F3FC}"}</span>
+                  </span>
+                ) : null}
                 <p className="text-sm font-medium text-fg">{item.title}</p>
                 <p className="mt-1 text-sm text-muted">{item.body}</p>
               </li>

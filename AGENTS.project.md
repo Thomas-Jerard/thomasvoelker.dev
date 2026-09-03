@@ -28,23 +28,30 @@ happen again.
 
 Black / white / grey. Square corners. No neon. No pill capsules.
 
-- Hero line: “I build websites and the systems around them.”
+- Hero name: **Thomas Voelker**. Middle name **Jerard** jumps in on a loop,
+  same baseline, muted grey, spacing expands with the word.
+- Hero line: “I build cool stuff with AI”
 - CTAs: **Email Me** / **What am I up to?**
-- Portrait is the favicon and header mark. Large portrait on desktop; belt
-  cycles **under the photo**, not full-bleed.
+- Portrait is the favicon and header mark. Belt cycles **under the photo**,
+  not full-bleed.
 - Belt label: **Where I've Been**. Workplaces only, native color, infinite
   loop, even gaps, no grey borders: Orilo, Mercor, UPMC, ADPIA, Capstone.
   Grok is **not** in the belt.
 - Orilo is the founder-led, agent-backed venture. Clients (Reinforce Gym,
   Prime Stretch, Pevarnik) are studio work, not this site.
+- Studio work title: **Some Projects Orilo** + typewriter
+  Built / Made / Created (one word at a time, caret stays). 3D carousel,
+  larger on mobile, no nav buttons on mobile.
 - Orilo preview: 2.2s code → 3s live landing, gentle dissolve both ways.
   Mac chrome off while the site is up. Loop. No page-scroll on the preview.
-- Connective Fitness APP sits **after** “Work the studio shipped.” Running-man
-  icon, lock overlay, “Development in Progress.” Worker 👷 pops up; hammer 🔨
-  hits the **app icon**, not the worker.
+- Connective Fitness APP sits **after** studio work. Running-man icon, lock
+  overlay, “Development in Progress.” Worker 👷 pops from the gym box
+  (desktop) / status (mobile); hammer 🔨 hits the **app icon**.
 - Practice: copy on the left; Codex, Grok, Grok Bot **laterally**, one at a
   time from the bottom. Official marks, logos only (no backgrounds).
-- Education: real College Green, **Proud Bobcat**, Ohio University ·
-  B.S. Biology, honors.
+- Education: full-bleed looping video of Rufus on snowy College Green
+  (`public/videos/ohio-rufus.mp4`). **Proud Bobcat**. Ohio University ·
+  B.S. Biology, honors. No keyed overlay mascot.
 
 If a request conflicts with this list, ask before changing it.
+

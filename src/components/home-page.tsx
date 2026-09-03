@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
 import { ConnectiveAppModule } from "@/components/connective-app";
 import { CopyEmail } from "@/components/copy-email";
@@ -6,12 +5,13 @@ import { Groundhogs } from "@/components/groundhogs";
 import { JsonLd } from "@/components/json-ld";
 import { LogoBelt } from "@/components/logo-belt";
 import { OriloBuildPreview } from "@/components/orilo-build-preview";
+import { OriloVerb } from "@/components/orilo-verb";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { StudioCarousel } from "@/components/studio-carousel";
 import { Button } from "@/components/ui/button";
 import {
   education,
-  featuredClients,
   featuredVenture,
   oriloServices,
   practice,
@@ -35,28 +35,28 @@ export function HomePage() {
   );
 }
 
+function NameLockup() {
+  return (
+    <p className="name-lockup display reveal" aria-label="Thomas Jerard Voelker">
+      <span className="name-first">Thomas&nbsp;</span>
+      <span className="name-mid" aria-hidden="true">
+        <span className="name-jump">Jerard&nbsp;</span>
+      </span>
+      <span className="name-last">Voelker.</span>
+    </p>
+  );
+}
+
 function Hero() {
   return (
-    <section className="page-wrap grid items-end gap-8 pb-12 pt-8 md:grid-cols-12 md:gap-10 md:pb-20 md:pt-16">
-      <div className="md:col-span-7">
-        <div className="mobile-identity md:hidden">
-          <img src={site.portrait.src} alt={site.portrait.alt} width={160} height={160} />
-        </div>
-        <p className="kicker reveal">{site.availability}</p>
-        <h1 className="display reveal reveal-delay-1 mt-3 text-[2.15rem] text-fg sm:text-5xl md:text-6xl text-balance">
-          I build websites and the systems around them.
+    <section className="page-wrap grid min-w-0 items-start gap-8 pb-12 pt-8 md:grid-cols-12 md:items-end md:gap-10 md:pb-20 md:pt-16">
+      <div className="min-w-0 md:col-span-7">
+        <NameLockup />
+        <h1 className="display reveal reveal-delay-1 mt-5 text-[2.15rem] text-fg sm:text-5xl md:text-6xl text-balance">
+          I build cool stuff with AI
         </h1>
         <p className="reveal reveal-delay-2 mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg text-pretty">
-          {site.tagline} This site is mine.{" "}
-          <a
-            href={site.orilo.url}
-            className="text-fg underline decoration-border-strong underline-offset-4 hover:text-muted"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Orilo
-          </a>{" "}
-          is the studio.
+          {site.tagline} This site is mine.
         </p>
         <div className="reveal reveal-delay-3 mt-7 flex flex-col gap-3 sm:flex-row">
           <CopyEmail className="w-full sm:w-auto" />
@@ -151,35 +151,18 @@ function ClientWork() {
   return (
     <section id="clients" className="border-t border-border py-16 md:py-24">
       <div className="page-wrap">
-        <SectionHeading
-          index="02"
-          label="Studio work"
-          title="Work the studio shipped."
-        />
+        <header>
+          <p className="kicker">02 — Studio work</p>
+          <h2 className="display mt-3 max-w-4xl text-3xl text-fg md:text-5xl">
+            Some Projects Orilo <OriloVerb />
+          </h2>
+        </header>
         <p className="mt-4 max-w-xl text-sm text-muted md:text-base">
           These are client businesses. Orilo designed, launched, and looks after the sites.
         </p>
-        <ul className="mt-10 grid gap-8 md:grid-cols-3">
-          {featuredClients.map((client, i) => (
-            <Reveal as="li" rank={i + 1} key={client.slug}>
-              <Link
-                to="/work/$slug"
-                params={{ slug: client.slug }}
-                className="group block no-underline"
-              >
-                <div className="project-shot shot-wide">
-                  <img src={client.image} alt="" />
-                </div>
-                <p className="mt-4 text-lg font-medium text-fg">{client.name}</p>
-                <p className="mt-1 text-sm text-muted">{client.blurb}</p>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm text-fg">
-                  View project
-                  <ArrowUpRight className="size-3.5" />
-                </span>
-              </Link>
-            </Reveal>
-          ))}
-        </ul>
+        <div className="mt-10">
+          <StudioCarousel />
+        </div>
       </div>
     </section>
   );
@@ -189,16 +172,12 @@ function Practice() {
   return (
     <section className="border-t border-border py-16 md:py-24">
       <div className="page-wrap">
-        <div className="grid gap-8 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-5">
-            <p className="kicker">04 — Practice</p>
-            <h2 className="display mt-3 text-3xl text-fg md:text-4xl text-balance">
-              Daily work in large language models, agentic frameworks, and cloud agents.
-            </h2>
-          </div>
-          <div className="md:col-span-7">
-            <Groundhogs />
-          </div>
+        <p className="kicker">04 — Practice</p>
+        <h2 className="display mt-3 max-w-2xl text-3xl text-fg md:text-4xl text-balance">
+          Daily work in large language models, agentic frameworks, and cloud agents.
+        </h2>
+        <div className="mt-8">
+          <Groundhogs />
         </div>
         <ul className="mt-10 grid gap-6 md:grid-cols-3">
           {practice.map((item) => (
@@ -216,7 +195,19 @@ function Practice() {
 function OhioChapter() {
   return (
     <section className="ohio-chapter" aria-labelledby="ohio-title">
-      <img src={education.image} alt={education.alt} />
+      <video
+        className="ohio-bg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/videos/ohio-rufus-poster.jpg"
+        disablePictureInPicture
+        aria-label={education.alt}
+      >
+        <source src="/videos/ohio-rufus.mp4" type="video/mp4" />
+      </video>
       <div className="ohio-copy">
         <div className="page-wrap w-full">
           <p className="kicker" style={{ color: "var(--color-ohio-fg)" }}>
@@ -232,7 +223,7 @@ function OhioChapter() {
           <p className="mt-4 max-w-lg text-base md:text-lg" style={{ color: "var(--color-ohio-fg)" }}>
             {education.school} · {education.degree}
           </p>
-          <p className="mt-3 max-w-lg text-sm md:text-base" style={{ color: "var(--color-ohio-fg)" }}>
+          <p className="mt-3 max-w-xl text-sm md:text-base" style={{ color: "var(--color-ohio-fg)" }}>
             {education.bio}
           </p>
         </div>

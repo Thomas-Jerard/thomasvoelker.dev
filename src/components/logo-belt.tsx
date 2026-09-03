@@ -1,10 +1,9 @@
 import { workplaces } from "@/data/site";
 
 function BeltSet({ copy }: { copy: number }) {
-  const items = [...workplaces, ...workplaces];
   return (
     <ul className="logo-belt-set" aria-hidden={copy === 0 ? undefined : true}>
-      {items.map((place, index) => (
+      {workplaces.map((place, index) => (
         <li key={`${place.id}-${copy}-${index}`}>
           <a
             href={place.href}
@@ -12,11 +11,11 @@ function BeltSet({ copy }: { copy: number }) {
             rel="noreferrer"
             title={place.name}
             className="logo-belt-link"
-            tabIndex={copy === 0 && index < workplaces.length ? 0 : -1}
+            tabIndex={copy === 0 ? 0 : -1}
           >
             <img
               src={place.logo}
-              alt={copy === 0 && index < workplaces.length ? place.name : ""}
+              alt={copy === 0 ? place.name : ""}
               className="logo-mark"
             />
           </a>

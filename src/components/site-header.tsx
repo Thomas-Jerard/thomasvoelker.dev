@@ -14,7 +14,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border bg-bg/90 backdrop-blur">
       <div className="page-wrap flex h-14 items-center justify-between gap-4">
         <Wordmark />
-        <nav className="hidden items-center gap-6 text-sm text-muted md:flex">
+        <nav className="flex min-w-0 items-center gap-3 text-xs text-muted sm:gap-6 sm:text-sm md:gap-6">
           {links.map((link) => (
             <Link key={link.label} to={link.to} className="hover:text-fg">
               {link.label}

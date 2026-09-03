@@ -8,7 +8,7 @@ export function Wordmark({ className }: { className?: string }) {
       <span className="portrait-mark size-9 overflow-hidden rounded-full">
         <img src={site.portrait.square} alt="" />
       </span>
-      <span className="text-sm font-medium text-fg">{site.name}</span>
+      <span className="hidden text-sm font-medium text-fg sm:inline">{site.name}</span>
     </Link>
   );
 }

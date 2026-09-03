@@ -6,7 +6,7 @@ export const site = {
   location: "Greensburg, Pennsylvania",
   email: "thomas@orilo.io",
   availability: "Available for select projects",
-  headline: "I build websites and the systems around them.",
+  headline: "I build cool stuff with AI",
   tagline:
     "I run Orilo and I’m building connective software for gyms and the people who train in them.",
   description:
@@ -121,7 +121,7 @@ export const education = {
   place: "Athens, Ohio",
   bio: "I transferred to Athens in 2022 and finished on College Green — biology, honors, and the years that still sit behind the work.",
   image: "/images/ohio/college-green.jpg",
-  alt: "College Green at Ohio University, Cutler Hall at the end of the brick walk",
+  alt: "Rufus the Bobcat on a snowy College Green at Ohio University",
 } as const;
 
 export const about = {
