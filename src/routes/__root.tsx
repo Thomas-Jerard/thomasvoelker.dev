@@ -3,11 +3,13 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { NotFoundPage } from "@/components/not-found";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Thomas Voelker — Founder of Orilo";
 
 export const Route = createRootRoute({
+  notFoundComponent: NotFoundPage,
   head: () => ({
     meta: [
       { charSet: "utf-8" },

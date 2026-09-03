@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { connectiveApp, featuredClients, featuredVenture } from "@/data/site";
-import { breadcrumbJsonLd, pageHead, pages, webPageJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, pageHead, pages, webPageJsonLd, workListJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/work/")({
   component: WorkIndex,
@@ -13,7 +13,8 @@ export const Route = createFileRoute("/work/")({
 function WorkIndex() {
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
-      <JsonLd data={webPageJsonLd(pages.work.path, pages.work.title, pages.work.description)} />
+      <JsonLd data={webPageJsonLd(pages.work.path, pages.work.title, pages.work.description, "CollectionPage")} />
+      <JsonLd data={workListJsonLd()} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },

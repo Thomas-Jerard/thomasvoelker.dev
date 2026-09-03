@@ -14,7 +14,7 @@ function AboutPage() {
   return (
     <main id="main">
       <JsonLd data={personJsonLd()} />
-      <JsonLd data={webPageJsonLd(pages.about.path, pages.about.title, pages.about.description)} />
+      <JsonLd data={webPageJsonLd(pages.about.path, pages.about.title, pages.about.description, "ProfilePage")} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },

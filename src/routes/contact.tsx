@@ -12,7 +12,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
-      <JsonLd data={webPageJsonLd(pages.contact.path, pages.contact.title, pages.contact.description)} />
+      <JsonLd data={webPageJsonLd(pages.contact.path, pages.contact.title, pages.contact.description, "ContactPage")} />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },

@@ -40,6 +40,8 @@ export function pageHead({ path, title, description, image = OG_IMAGE }: PageHea
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: `${site.fullName} — Founder of Orilo` },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@voelker_thomas" },
+      { name: "twitter:creator", content: "@voelker_thomas" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
       { name: "twitter:image", content: image },
@@ -113,7 +115,11 @@ export function personJsonLd() {
     additionalName: "Jerard",
     familyName: "Voelker",
     url: `${SITE_ORIGIN}/`,
-    image: absoluteUrl(site.portrait.src),
+    image: {
+      "@type": "ImageObject",
+      url: absoluteUrl(site.portrait.src),
+      caption: site.portrait.alt,
+    },
     email: site.email,
     jobTitle: site.jobTitle,
     description: site.description,
@@ -145,7 +151,10 @@ export function personJsonLd() {
       "Agentic frameworks",
       "Fitness technology",
     ],
-    sameAs: site.socials.map((s) => s.href),
+    sameAs: [
+      ...site.socials.map((s) => s.href),
+      "https://github.com/Thomas-Jerard",
+    ],
   };
 }
 
@@ -181,10 +190,15 @@ export function websiteJsonLd() {
   };
 }
 
-export function webPageJsonLd(path: string, name: string, description: string) {
+export function webPageJsonLd(
+  path: string,
+  name: string,
+  description: string,
+  type: "WebPage" | "CollectionPage" | "ProfilePage" | "ContactPage" = "WebPage",
+) {
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": type,
     "@id": `${absoluteUrl(path)}#webpage`,
     url: absoluteUrl(path),
     name,
@@ -192,6 +206,43 @@ export function webPageJsonLd(path: string, name: string, description: string) {
     isPartOf: { "@id": `${SITE_ORIGIN}/#website` },
     about: { "@id": `${SITE_ORIGIN}/#person` },
     inLanguage: "en-US",
+  };
+}
+
+export function workListJsonLd() {
+  const entries = [
+    { name: featuredVenture.name, path: "/work/orilo" },
+    { name: connectiveApp.name, path: "/work/connective-fitness" },
+    ...featuredClients.map((c) => ({ name: c.name, path: `/work/${c.slug}` })),
+  ];
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Selected work",
+    itemListElement: entries.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: absoluteUrl(item.path),
+    })),
+  };
+}
+
+export function projectJsonLd(input: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    ...(input.image ? { image: absoluteUrl(input.image) } : {}),
+    creator: { "@id": `${SITE_ORIGIN}/#person` },
+    provider: { "@id": `${SITE_ORIGIN}/#orilo` },
   };
 }
 

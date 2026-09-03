@@ -9,3 +9,18 @@
 [dev]
   command = "npm run dev"
   port = 8080
+
+[[redirects]]
+  from = "/projects"
+  to = "/work"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio"
+  to = "/work"
+  status = 301
+
+[[redirects]]
+  from = "/resume"
+  to = "/about"
+  status = 301

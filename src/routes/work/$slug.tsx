@@ -9,6 +9,8 @@ import {
   clientPage,
   pageHead,
   pages,
+  projectJsonLd,
+  SITE_ORIGIN,
   webPageJsonLd,
 } from "@/lib/seo";
 
@@ -40,6 +42,14 @@ function OriloPage() {
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
       <JsonLd data={webPageJsonLd(pages.orilo.path, pages.orilo.title, pages.orilo.description)} />
+      <JsonLd
+        data={projectJsonLd({
+          name: featuredVenture.name,
+          description: featuredVenture.summary,
+          url: site.orilo.url,
+          image: featuredVenture.image,
+        })}
+      />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -80,6 +90,13 @@ function AppPage() {
         data={webPageJsonLd(pages.connective.path, pages.connective.title, pages.connective.description)}
       />
       <JsonLd
+        data={projectJsonLd({
+          name: connectiveApp.name,
+          description: connectiveApp.summary,
+          url: `${SITE_ORIGIN}/work/connective-fitness`,
+        })}
+      />
+      <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "Work", path: "/work" },
@@ -106,6 +123,14 @@ function ClientPage({ client }: { client: (typeof featuredClients)[number] }) {
   return (
     <main id="main" className="page-wrap py-16 md:py-24">
       <JsonLd data={webPageJsonLd(seo.path, seo.title, seo.description)} />
+      <JsonLd
+        data={projectJsonLd({
+          name: client.name,
+          description: client.blurb,
+          url: client.url,
+          image: client.image,
+        })}
+      />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
