@@ -583,6 +583,24 @@ html.light .app-lock img {
   height: 100%;
   object-fit: cover;
   object-position: center 42%;
+  pointer-events: none;
+}
+.loop-video {
+  pointer-events: none;
+}
+.loop-video::-webkit-media-controls,
+.loop-video::-webkit-media-controls-enclosure,
+.loop-video::-webkit-media-controls-panel,
+.loop-video::-webkit-media-controls-overlay-play-button,
+.loop-video::-webkit-media-controls-start-playback-button,
+.loop-video::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 .ohio-copy {
   position: relative;

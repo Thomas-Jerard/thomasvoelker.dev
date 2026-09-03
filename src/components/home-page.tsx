@@ -1,10 +1,10 @@
-import { useEffect, useRef } from "react";
 import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
 import { ConnectiveAppModule } from "@/components/connective-app";
 import { CopyEmail } from "@/components/copy-email";
 import { Groundhogs } from "@/components/groundhogs";
 import { JsonLd } from "@/components/json-ld";
 import { LogoBelt } from "@/components/logo-belt";
+import { LoopVideo } from "@/components/loop-video";
 import { OriloBuildPreview } from "@/components/orilo-build-preview";
 import { OriloVerb } from "@/components/orilo-verb";
 import { Reveal } from "@/components/reveal";
@@ -197,7 +197,12 @@ function Practice() {
 function OhioChapter() {
   return (
     <section className="ohio-chapter" aria-labelledby="ohio-title">
-      <OhioVideo />
+      <LoopVideo
+        className="ohio-bg"
+        src="/videos/ohio-rufus.mp4"
+        poster="/videos/ohio-rufus-poster.jpg"
+        label={education.alt}
+      />
       <div className="ohio-copy">
         <div className="page-wrap w-full">
           <p className="kicker" style={{ color: "var(--color-ohio-fg)" }}>
@@ -219,54 +224,6 @@ function OhioChapter() {
         </div>
       </div>
     </section>
-  );
-}
-
-function OhioVideo() {
-  const ref = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    el.muted = true;
-    el.defaultMuted = true;
-    el.playsInline = true;
-    el.setAttribute("webkit-playsinline", "true");
-    const play = () => {
-      const attempt = el.play();
-      if (attempt) attempt.catch(() => {});
-    };
-    play();
-    const onVis = () => {
-      if (document.visibilityState === "visible") play();
-    };
-    document.addEventListener("visibilitychange", onVis);
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) play();
-      },
-      { threshold: 0.15 },
-    );
-    io.observe(el);
-    return () => {
-      document.removeEventListener("visibilitychange", onVis);
-      io.disconnect();
-    };
-  }, []);
-  return (
-    <video
-      ref={ref}
-      className="ohio-bg"
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="metadata"
-      poster="/videos/ohio-rufus-poster.jpg"
-      disablePictureInPicture
-      aria-label={education.alt}
-    >
-      <source src="/videos/ohio-rufus.mp4" type="video/mp4" />
-    </video>
   );
 }
 
