@@ -247,12 +247,73 @@ html.light .app-lock img {
 }
 .about-copy { order: 0; }
 .about-media { order: 1; min-width: 0; }
-.about-portrait {
+.about-portrait-wrap {
   position: relative;
   width: min(18rem, 78vw);
+}
+.about-portrait {
+  position: relative;
+  width: 100%;
   overflow: hidden;
   background: #111;
   aspect-ratio: 9 / 16;
+}
+.about-corner {
+  position: absolute;
+  width: 2.85rem;
+  height: 2.85rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.about-corner::before,
+.about-corner::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    90deg,
+    #ef4444 0%,
+    #3b82f6 18%,
+    #9a9a9a 36%,
+    #ec4899 54%,
+    #22c55e 72%,
+    #ef4444 100%
+  );
+  background-size: 260% 100%;
+  animation: agent-underline 2.6s linear infinite;
+}
+.about-corner-tr { top: 0; right: 0; }
+.about-corner-tr::before {
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+}
+.about-corner-tr::after {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background-size: 100% 260%;
+  animation-name: agent-underline-y;
+}
+.about-corner-bl { bottom: 0; left: 0; }
+.about-corner-bl::before {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+.about-corner-bl::after {
+  bottom: 0;
+  left: 0;
+  top: 0;
+  width: 1px;
+  background-size: 100% 260%;
+  animation-name: agent-underline-y;
+}
+@keyframes agent-underline-y {
+  from { background-position: 50% 0%; }
+  to { background-position: 50% 240%; }
 }
 .about-shot {
   position: absolute;
@@ -311,7 +372,7 @@ html.light .app-lock img {
   }
   .about-copy,
   .about-media { order: 0; }
-  .about-portrait { width: min(22rem, 100%); }
+  .about-portrait-wrap { width: min(22rem, 100%); }
 }
 .project-shot img {
   width: 100%;
@@ -888,7 +949,9 @@ html.light .app-lock img {
   .orilo-build .build-site { opacity: 1; filter: none; }
   .logo-belt-track, .groundhog, .builder-hog, .builder-hammer, .app-lock, .app-lock img,
   .ohio-bg, .portrait-motion img, .name-mid, .name-jump, .orilo-caret { animation: none !important; }
-  .agent-word::after { animation: none; }
+  .agent-word::after,
+  .about-corner::before,
+  .about-corner::after { animation: none; }
   .name-mid { grid-template-columns: 1fr; }
   .name-jump { transform: none; }
   .orilo-caret { opacity: 1; }

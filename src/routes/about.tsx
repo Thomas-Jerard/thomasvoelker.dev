@@ -115,13 +115,17 @@ function AboutPage() {
 
 function AboutPortrait() {
   return (
-    <div className="portrait-frame about-portrait">
-      <LoopVideo
-        className="about-shot is-on"
-        src="/videos/about-portrait.mp4?v=3"
-        poster="/videos/about-portrait.jpg?v=3"
-        label="Thomas Voelker"
-      />
+    <div className="about-portrait-wrap">
+      <span className="about-corner about-corner-tr" aria-hidden="true" />
+      <span className="about-corner about-corner-bl" aria-hidden="true" />
+      <div className="portrait-frame about-portrait">
+        <LoopVideo
+          className="about-shot is-on"
+          src="/videos/about-portrait.mp4?v=3"
+          poster="/videos/about-portrait.jpg?v=3"
+          label="Thomas Voelker"
+        />
+      </div>
     </div>
   );
 }
