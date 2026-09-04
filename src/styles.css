@@ -1105,13 +1105,19 @@ html.light .app-lock img {
   padding: 5.5rem 1.25rem;
   border-top: 1px solid var(--color-border);
   background-color: #050505;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.038) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.038) 1px, transparent 1px);
-  background-size: 5.5rem 5.5rem;
+  --mission-cell: 5.5rem;
 }
+.mission-streams {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.mission-stat,
+.mission-caption { position: relative; z-index: 1; }
 .mission-stat {
-  position: relative;
   margin: 0;
   font-size: clamp(4.75rem, 12vw, 7.25rem);
   font-weight: 500;
@@ -1120,7 +1126,6 @@ html.light .app-lock img {
   color: #f3f3f3;
 }
 .mission-caption {
-  position: relative;
   margin: 0;
   font-size: 0.78rem;
   letter-spacing: 0.02em;
@@ -1130,7 +1135,7 @@ html.light .app-lock img {
   .mission-band {
     min-height: 24rem;
     padding: 7.5rem 2rem;
-    background-size: 6.25rem 6.25rem;
+    --mission-cell: 6.25rem;
   }
 }
 

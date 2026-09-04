@@ -4,6 +4,7 @@ import { ContactActions } from "@/components/contact-actions";
 import { JsonLd } from "@/components/json-ld";
 import { LoopVideo } from "@/components/loop-video";
 import { HobbyReel } from "@/components/hobby-reel";
+import { MissionBand } from "@/components/mission-band";
 import { about, craft } from "@/data/site";
 import { breadcrumbJsonLd, pageHead, pages, personJsonLd, webPageJsonLd } from "@/lib/seo";
 
@@ -47,10 +48,7 @@ function AboutPage() {
         <CraftLines />
       </section>
 
-      <section className="mission-band" aria-label="Mission">
-        <p className="mission-stat">1</p>
-        <p className="mission-caption">mission to build cool sh*t</p>
-      </section>
+      <MissionBand />
 
       <HobbyReel />
 
