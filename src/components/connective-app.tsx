@@ -17,6 +17,9 @@ export function ConnectiveAppModule() {
           params={{ slug: "connective-fitness" }}
           className="app-module group mt-8 block no-underline"
         >
+          <span className="builder-stage builder-stage-module" aria-hidden="true">
+            <span className="builder-hog">{"\u{1F477}\u{1F3FC}"}</span>
+          </span>
           <div className="app-module-lead">
             <span className="app-lock-wrap" aria-hidden="true">
               <span className="app-lock">
