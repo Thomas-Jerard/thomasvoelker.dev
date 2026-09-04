@@ -145,10 +145,10 @@ export const about = {
   future: "I continue to expand my work into various ventures and have some awesome aspirations for future projects",
   place: "Pittsburgh Metro 📍",
   photos: [
-    { src: "/images/profile/about-1.jpg", alt: "Thomas Voelker in a navy suit in a church aisle" },
-    { src: "/images/profile/about-2.jpg", alt: "Thomas Voelker smiling outdoors in a tan suit" },
-    { src: "/images/profile/about-3.jpg", alt: "Thomas Voelker in a car, looking at the camera" },
-    { src: "/images/profile/about-4.jpg", alt: "Thomas Voelker behind the bar, throwing a peace sign" },
+    { src: "/images/profile/about-1.jpg?v=2", alt: "Thomas Voelker in a navy suit in a church aisle" },
+    { src: "/images/profile/about-2.jpg?v=2", alt: "Thomas Voelker smiling outdoors in a tan suit" },
+    { src: "/images/profile/about-3.jpg?v=2", alt: "Thomas Voelker in a car, looking at the camera" },
+    { src: "/images/profile/about-4.jpg?v=2", alt: "Thomas Voelker behind the bar, throwing a peace sign" },
   ],
 } as const;
 
