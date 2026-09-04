@@ -186,10 +186,10 @@ export const companies = [
 export const hobbies = [
   { id: "stage", type: "image", src: "/images/hobbies/stage.jpg", alt: "On stage at a bodybuilding show", label: "Bodybuilding" },
   { id: "gym", type: "image", src: "/images/hobbies/gym.jpg", alt: "Training in the gym", label: "Training" },
-  { id: "range", type: "video", src: "/videos/hobby-range.mp4", poster: "/videos/hobby-range.jpg", alt: "On the range", label: "Shooting" },
+  { id: "range", type: "video", src: "/videos/hobby-range.mp4", poster: "/videos/hobby-range.jpg", alt: "On the range", label: "Ranging" },
   { id: "goats", type: "image", src: "/images/hobbies/goats.jpg?v=2", alt: "Mountain goats on a ridge", label: "Hiking" },
-  { id: "ridge", type: "image", src: "/images/hobbies/ridge.jpg?v=2", alt: "A high alpine view", label: "Hiking" },
+  { id: "ridge", type: "image", src: "/images/hobbies/ridge.jpg?v=2", alt: "A high alpine view", label: "Site seeing" },
   { id: "family", type: "image", src: "/images/hobbies/family.jpg", alt: "With family", label: "Family" },
-  { id: "flex", type: "video", src: "/videos/hobby-flex.mp4", poster: "/videos/hobby-flex.jpg", alt: "Lifting in the gym", label: "Training" },
-  { id: "trophies", type: "image", src: "/images/hobbies/trophies.jpg", alt: "With a competitor and trophies", label: "Bodybuilding" },
+  { id: "flex", type: "video", src: "/videos/hobby-flex.mp4", poster: "/videos/hobby-flex.jpg", alt: "Lifting in the gym", label: "Lifting" },
+  { id: "trophies", type: "image", src: "/images/hobbies/trophies.jpg", alt: "With a competitor and trophies", label: "Friends" },
 ] as const;
