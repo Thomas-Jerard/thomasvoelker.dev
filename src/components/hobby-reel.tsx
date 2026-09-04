@@ -17,6 +17,7 @@ export function HobbyReel() {
               ) : (
                 <img src={item.src} alt={i < hobbies.length ? item.alt : ""} />
               )}
+              <figcaption className="hobby-label">{item.label}</figcaption>
             </figure>
           ))}
         </div>
