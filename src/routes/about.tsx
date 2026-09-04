@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ContactActions } from "@/components/contact-actions";
 import { JsonLd } from "@/components/json-ld";
+import { LoopVideo } from "@/components/loop-video";
 import { about, companies, craft, hobbies } from "@/data/site";
 import { breadcrumbJsonLd, pageHead, pages, personJsonLd, webPageJsonLd } from "@/lib/seo";
 
@@ -113,27 +114,14 @@ function AboutPage() {
 }
 
 function AboutPortrait() {
-  const [active, setActive] = useState(0);
-  useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || about.photos.length < 2) return;
-    const id = window.setInterval(() => {
-      setActive((i) => (i + 1) % about.photos.length);
-    }, 4200);
-    return () => window.clearInterval(id);
-  }, []);
   return (
     <div className="portrait-frame about-portrait">
-      {about.photos.map((photo, i) => (
-        <img
-          key={photo.src}
-          src={photo.src}
-          alt={photo.alt}
-          width={1200}
-          height={1500}
-          className={i === active ? "about-shot is-on" : "about-shot"}
-        />
-      ))}
+      <LoopVideo
+        className="about-shot is-on"
+        src="/videos/about-portrait.mp4"
+        poster="/videos/about-portrait.jpg"
+        label="Thomas Voelker"
+      />
     </div>
   );
 }
