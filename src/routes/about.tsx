@@ -118,8 +118,8 @@ function AboutPortrait() {
     <div className="portrait-frame about-portrait">
       <LoopVideo
         className="about-shot is-on"
-        src="/videos/about-portrait.mp4"
-        poster="/videos/about-portrait.jpg"
+        src="/videos/about-portrait.mp4?v=3"
+        poster="/videos/about-portrait.jpg?v=3"
         label="Thomas Voelker"
       />
     </div>

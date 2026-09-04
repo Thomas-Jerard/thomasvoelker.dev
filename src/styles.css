@@ -249,10 +249,10 @@ html.light .app-lock img {
 .about-media { order: 1; min-width: 0; }
 .about-portrait {
   position: relative;
-  width: min(15.5rem, 72vw);
+  width: min(18rem, 78vw);
   overflow: hidden;
   background: #111;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 9 / 16;
 }
 .about-shot {
   position: absolute;
@@ -260,8 +260,8 @@ html.light .app-lock img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 22%;
+  object-fit: contain;
+  object-position: center center;
   opacity: 0;
   transition: opacity 800ms var(--ease-smooth-out);
 }
@@ -305,13 +305,13 @@ html.light .app-lock img {
   .about-hero {
     display: grid;
     grid-template-columns: 5fr 7fr;
-    align-items: end;
+    align-items: start;
     gap: 2.5rem;
     padding: 6rem 0;
   }
   .about-copy,
   .about-media { order: 0; }
-  .about-portrait { width: 100%; }
+  .about-portrait { width: min(22rem, 100%); }
 }
 .project-shot img {
   width: 100%;
