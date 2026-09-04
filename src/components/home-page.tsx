@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
 import { ConnectiveAppModule } from "@/components/connective-app";
+import { ContactActions } from "@/components/contact-actions";
 import { CopyEmail } from "@/components/copy-email";
 import { Groundhogs } from "@/components/groundhogs";
 import { JsonLd } from "@/components/json-ld";
@@ -253,7 +254,7 @@ function ContactBand() {
           Feel Free to Shoot me a quick Email or Call my Agent to get in Contact with me!
         </h2>
         <div className="mt-8">
-          <CopyEmail />
+          <ContactActions />
         </div>
       </div>
     </section>

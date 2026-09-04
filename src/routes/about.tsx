@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CopyEmail } from "@/components/copy-email";
+import { ContactActions } from "@/components/contact-actions";
 import { JsonLd } from "@/components/json-ld";
 import { LogoBelt } from "@/components/logo-belt";
 import { about, companies, craft, hobbies, site } from "@/data/site";
@@ -108,7 +108,7 @@ function AboutPage() {
             Feel Free to Shoot me a quick Email or Call my Agent to get in Contact with me!
           </h2>
           <div className="mt-8">
-            <CopyEmail />
+            <ContactActions />
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CopyEmail } from "@/components/copy-email";
+import { ContactActions } from "@/components/contact-actions";
 import { JsonLd } from "@/components/json-ld";
 import { site } from "@/data/site";
 import { breadcrumbJsonLd, pageHead, pages, webPageJsonLd } from "@/lib/seo";
@@ -21,13 +21,13 @@ function ContactPage() {
       />
       <p className="kicker">Contact</p>
       <h1 className="display mt-3 max-w-2xl text-4xl text-fg md:text-6xl">
-        Email is the fastest way.
+        Email me, or call Sara.
       </h1>
       <p className="mt-5 max-w-lg text-muted">
-        I don’t take live calls. If the work is a fit, write {site.email}.
+        Sara is my personal assistant. {site.agent.display}. Or write {site.email}.
       </p>
       <div className="mt-8">
-        <CopyEmail />
+        <ContactActions />
       </div>
       <ul className="mt-10 flex flex-wrap gap-5 text-sm text-muted">
         {site.socials.map((s) => (

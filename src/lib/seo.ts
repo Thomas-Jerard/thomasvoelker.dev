@@ -71,7 +71,7 @@ export const pages = {
   contact: {
     path: "/contact",
     title: "Contact — Thomas Voelker",
-    description: `Email ${site.email}. Thomas Voelker — founder of Orilo in Greensburg, Pennsylvania.`,
+    description: `Email ${site.email} or call Sara at ${site.agent.display}. Thomas Voelker — founder of Orilo in Greensburg, Pennsylvania.`,
   },
   orilo: {
     path: "/work/orilo",
@@ -121,6 +121,7 @@ export function personJsonLd() {
       caption: site.portrait.alt,
     },
     email: site.email,
+    telephone: site.agent.phone,
     jobTitle: site.jobTitle,
     description: site.description,
     address: {

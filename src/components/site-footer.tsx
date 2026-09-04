@@ -39,6 +39,10 @@ export function SiteFooter() {
           <a href={`mailto:${site.email}`} className="text-fg hover:text-muted">
             {site.email}
           </a>
+          {" · "}
+          <a href={`tel:${site.agent.phone}`} className="text-fg hover:text-muted">
+            Sara {site.agent.display}
+          </a>
         </p>
       </div>
     </footer>

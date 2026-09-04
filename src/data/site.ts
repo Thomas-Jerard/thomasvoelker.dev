@@ -5,6 +5,12 @@ export const site = {
   jobTitle: "Founder, developer, and product builder",
   location: "Greensburg, Pennsylvania",
   email: "thomas@orilo.io",
+  agent: {
+    name: "Sara",
+    role: "Personal Assistant",
+    phone: "+12137290516",
+    display: "(213) 729-0516",
+  },
   availability: "Available for select projects",
   headline: "I build cool stuff with AI",
   tagline:
