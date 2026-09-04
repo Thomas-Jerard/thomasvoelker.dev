@@ -9,14 +9,14 @@ type Stream = {
 };
 
 function makeStream(cols: number, rows: number): Stream {
-  const axis = Math.random() < 0.58 ? "x" : "y";
-  const maxLane = axis === "x" ? rows : cols;
+  const axis = "x";
+  const maxLane = rows;
   return {
     axis,
     lane: Math.floor(Math.random() * Math.max(1, maxLane + 1)),
     head: -Math.random() * 0.4,
     len: 0.07 + Math.random() * 0.11,
-    speed: 0.045 + Math.random() * 0.07,
+    speed: 0.07 + Math.random() * 0.1,
   };
 }
 
@@ -107,7 +107,7 @@ export function MissionBand() {
       const cols = Math.ceil(w / cell);
       const rows = Math.ceil(h / cell);
       if (streams.length === 0) {
-        streams = Array.from({ length: 9 }, () => makeStream(cols, rows));
+        streams = Array.from({ length: 16 }, () => makeStream(cols, rows));
       }
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
