@@ -945,3 +945,23 @@ html.light .app-lock img {
   line-height: 1.55;
   color: var(--color-muted);
 }
+.practice-more {
+  margin-top: 0.55rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+.ohio-expand .practice-row { margin-top: 0; }
+.ohio-expand .practice-brief,
+.ohio-expand .practice-plus,
+.ohio-expand .practice-more {
+  color: var(--color-ohio-fg);
+}
+.ohio-expand .practice-brief {
+  font-size: inherit;
+  line-height: inherit;
+}
+.ohio-expand .practice-more {
+  opacity: 0.88;
+  font-size: 0.95em;
+}

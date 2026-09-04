@@ -122,7 +122,8 @@ export const education = {
   line: "Proud Bobcat",
   degree: "B.S. Biology, honors",
   place: "Athens, Ohio",
-  bio: "I transferred to Athens in 2022 and finished on College Green — biology, honors, and the years that still sit behind the work.",
+  bio: "I transferred to Athens in 2022 and finished on College Green",
+  more: "I spent my time in Athens studying biology with intent to continue to Medical or PA school. While studying, I worked as a bartender at Broney's and trained regularly. My training eventually led to competing in an amateur body building competition the Natural Ohio in 2023. Later, I trained clients. I provided customized nutrition plans, training protocols, and supplement recommendations directly contributing to multiple client successes.",
   image: "/images/ohio/college-green.jpg",
   alt: "Rufus the Bobcat on a snowy College Green at Ohio University",
 } as const;

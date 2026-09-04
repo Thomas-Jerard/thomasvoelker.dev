@@ -193,6 +193,7 @@ function Practice() {
                     <span className="practice-plus" aria-hidden="true" />
                   </span>
                 </summary>
+                <p className="practice-more">{item.more}</p>
               </details>
             </li>
           ))}
@@ -226,9 +227,17 @@ function OhioChapter() {
           <p className="mt-4 max-w-lg text-base md:text-lg" style={{ color: "var(--color-ohio-fg)" }}>
             {education.school} · {education.degree}
           </p>
-          <p className="mt-3 max-w-xl text-sm md:text-base" style={{ color: "var(--color-ohio-fg)" }}>
-            {education.bio}
-          </p>
+          <div className="mt-3 max-w-xl text-sm md:text-base" style={{ color: "var(--color-ohio-fg)" }}>
+            <details className="practice-item ohio-expand">
+              <summary>
+                <span className="practice-row">
+                  <span className="practice-brief">{education.bio}</span>
+                  <span className="practice-plus" aria-hidden="true" />
+                </span>
+              </summary>
+              <p className="practice-more">{education.more}</p>
+            </details>
+          </div>
         </div>
       </div>
     </section>
@@ -239,9 +248,9 @@ function ContactBand() {
   return (
     <section className="border-t border-border py-16 md:py-24">
       <div className="page-wrap">
-        <p className="kicker">Next</p>
-        <h2 className="display mt-3 max-w-2xl text-3xl text-fg md:text-5xl text-balance">
-          If the work is a fit, email me.
+        <p className="kicker">Let's Connect</p>
+        <h2 className="display mt-3 max-w-3xl text-3xl text-fg md:text-5xl text-balance">
+          Feel Free to Shoot me a quick Email or Call my Agent to get in Contact with me!
         </h2>
         <div className="mt-8">
           <CopyEmail />

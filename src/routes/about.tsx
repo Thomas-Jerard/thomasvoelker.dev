@@ -103,9 +103,9 @@ function AboutPage() {
 
       <section className="border-t border-border py-16 md:py-24">
         <div className="page-wrap">
-          <p className="kicker">Next</p>
-          <h2 className="display text-3xl text-fg md:text-5xl">
-            If the work is a fit, email me.
+          <p className="kicker">Let's Connect</p>
+          <h2 className="display text-3xl text-fg md:text-5xl text-balance">
+            Feel Free to Shoot me a quick Email or Call my Agent to get in Contact with me!
           </h2>
           <div className="mt-8">
             <CopyEmail />
