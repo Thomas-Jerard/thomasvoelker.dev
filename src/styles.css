@@ -971,7 +971,7 @@ html.light .app-lock img {
   .orilo-build .build-chrome { display: none; }
   .orilo-build .build-site { opacity: 1; filter: none; }
   .logo-belt-track, .groundhog, .builder-hog, .builder-hammer, .app-lock, .app-lock img,
-  .ohio-bg, .portrait-motion img, .name-mid, .name-jump, .orilo-caret { animation: none !important; }
+  .ohio-bg, .portrait-motion img, .name-mid, .name-jump, .orilo-caret, .hobby-track { animation: none !important; }
   .agent-word::after,
   .about-corner { animation: none; }
   .name-mid { grid-template-columns: 1fr; }
@@ -1091,4 +1091,41 @@ html.light .app-lock img {
 .ohio-expand .practice-more {
   opacity: 0.88;
   font-size: 0.95em;
+}
+
+.hobby-section {
+  padding: 2.5rem 0 3.25rem;
+  border-top: 1px solid var(--color-border);
+}
+.hobby-reel {
+  margin-top: 1.15rem;
+  overflow: hidden;
+}
+.hobby-track {
+  display: flex;
+  gap: 0.85rem;
+  width: max-content;
+  animation: hobby-pan 88s linear infinite;
+}
+.hobby-reel:hover .hobby-track { animation-play-state: paused; }
+.hobby-slide {
+  flex: 0 0 auto;
+  height: min(86vh, 54rem);
+  margin: 0;
+  background: #050505;
+}
+.hobby-slide img,
+.hobby-slide video {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: 92vw;
+  object-fit: contain;
+}
+@keyframes hobby-pan {
+  to { transform: translate3d(-50%, 0, 0); }
+}
+@media (max-width: 767px) {
+  .hobby-slide { height: min(70vh, 36rem); }
+  .hobby-track { gap: 0.55rem; animation-duration: 72s; }
 }

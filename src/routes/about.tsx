@@ -3,7 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ContactActions } from "@/components/contact-actions";
 import { JsonLd } from "@/components/json-ld";
 import { LoopVideo } from "@/components/loop-video";
-import { about, craft, hobbies } from "@/data/site";
+import { HobbyReel } from "@/components/hobby-reel";
+import { about, craft } from "@/data/site";
 import { breadcrumbJsonLd, pageHead, pages, personJsonLd, webPageJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -46,25 +47,7 @@ function AboutPage() {
         <CraftLines />
       </section>
 
-      <section className="border-t border-border py-16 md:py-24">
-        <div className="page-wrap">
-          <p className="kicker">Hobbies</p>
-          <h2 className="display mt-3 max-w-2xl text-3xl text-fg md:text-5xl">
-            What keeps me moving, competing, and recharging outside of work.
-          </h2>
-          <ul className="mt-10 grid gap-8 md:grid-cols-3">
-            {hobbies.map((hobby) => (
-              <li key={hobby.id}>
-                <div className="project-shot shot-wide">
-                  <img src={hobby.image} alt={hobby.alt} />
-                </div>
-                <h3 className="mt-4 text-lg font-medium text-fg">{hobby.name}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{hobby.body}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <HobbyReel />
 
       <section className="border-t border-border py-16 md:py-24">
         <div className="page-wrap">

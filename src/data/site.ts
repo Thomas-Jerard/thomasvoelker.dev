@@ -184,25 +184,12 @@ export const companies = [
 ] as const;
 
 export const hobbies = [
-  {
-    id: "bodybuilding",
-    name: "Competitive bodybuilding",
-    body: "Training with structure, discipline, and a long view of progress.",
-    image: "/images/hobbies/bodybuilding.jpg",
-    alt: "Thomas posing during a bodybuilding competition",
-  },
-  {
-    id: "baseball",
-    name: "Baseball",
-    body: "The pace, detail, and strategy of the game—from college baseball to the majors.",
-    image: "/images/hobbies/baseball.jpg",
-    alt: "Baseball gloves resting along a stadium rail",
-  },
-  {
-    id: "fortnite",
-    name: "Fortnite",
-    body: "A competitive reset built around fast decisions, mechanics, and squad play.",
-    image: "/images/hobbies/gaming.jpg",
-    alt: "A blue and purple illuminated gaming room",
-  },
+  { id: "stage", type: "image", src: "/images/hobbies/stage.jpg", alt: "On stage at a bodybuilding show" },
+  { id: "gym", type: "image", src: "/images/hobbies/gym.jpg", alt: "Training in the gym" },
+  { id: "range", type: "video", src: "/videos/hobby-range.mp4", poster: "/videos/hobby-range.jpg", alt: "On the range" },
+  { id: "goats", type: "image", src: "/images/hobbies/goats.jpg", alt: "Mountain goats on a ridge" },
+  { id: "ridge", type: "image", src: "/images/hobbies/ridge.jpg", alt: "A high alpine view" },
+  { id: "family", type: "image", src: "/images/hobbies/family.jpg", alt: "With family" },
+  { id: "flex", type: "video", src: "/videos/hobby-flex.mp4", poster: "/videos/hobby-flex.jpg", alt: "Lifting in the gym" },
+  { id: "trophies", type: "image", src: "/images/hobbies/trophies.jpg", alt: "With a competitor and trophies" },
 ] as const;
