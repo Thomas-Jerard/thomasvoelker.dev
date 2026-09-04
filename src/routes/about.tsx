@@ -47,6 +47,11 @@ function AboutPage() {
         <CraftLines />
       </section>
 
+      <section className="mission-band" aria-label="Mission">
+        <p className="mission-stat">1</p>
+        <p className="mission-caption">mission to build cool sh*t</p>
+      </section>
+
       <HobbyReel />
 
       <section className="border-t border-border py-16 md:py-24">
