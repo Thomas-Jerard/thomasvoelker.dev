@@ -40,7 +40,7 @@ html.light {
 html.light .logo-belt img[src$="orilo.svg"] {
   filter: none;
 }
-html.light .groundhog img[src*="grok.svg"] {
+html.light .groundhog img[src*="grok"] {
   filter: invert(1);
 }
 html.light .app-lock img {
