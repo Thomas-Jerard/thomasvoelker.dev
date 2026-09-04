@@ -97,19 +97,22 @@ export const practice = [
   {
     id: "llm",
     title: "Large language models",
-    body: "Daily work in Grok and other frontier models — drafting, research, and getting a model to actually ship instead of demo.",
+    brief: "Daily work in Grok and other frontier models.",
+    more: "Drafting, research, and getting a model to actually ship instead of a demo.",
     hog: { name: "Grok", src: "/images/brand/grok.svg" },
   },
   {
     id: "agentic",
     title: "Agentic frameworks",
-    body: "Grok Bot and the rest: agents with their own computer, running overnight, finishing the work instead of chatting about it.",
+    brief: "Grok Bot and agents that run with their own computer.",
+    more: "Overnight jobs that finish the work instead of chatting about it.",
     hog: { name: "Grok Bot", src: "/images/brand/grok-bot.svg" },
   },
   {
     id: "cloud",
     title: "Cloud agents",
-    body: "Codex and cloud coding agents inside the studio — the hands that help Orilo design, ship, and look after sites.",
+    brief: "Codex and cloud coding agents inside the studio.",
+    more: "The hands that help Orilo design, ship, and look after sites.",
     hog: { name: "Codex", src: "/images/brand/codex.svg" },
   },
 ] as const;

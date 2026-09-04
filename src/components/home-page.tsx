@@ -182,11 +182,19 @@ function Practice() {
         <div className="mt-8">
           <Groundhogs />
         </div>
-        <ul className="mt-10 grid gap-6 md:grid-cols-3">
+        <ul className="practice-list">
           {practice.map((item) => (
             <li key={item.id}>
-              <p className="text-sm font-medium text-fg">{item.title}</p>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{item.body}</p>
+              <details className="practice-item">
+                <summary>
+                  <span className="practice-head">
+                    <span className="practice-title">{item.title}</span>
+                    <span className="practice-plus" aria-hidden="true" />
+                  </span>
+                  <span className="practice-brief">{item.brief}</span>
+                </summary>
+                <p className="practice-more">{item.more}</p>
+              </details>
             </li>
           ))}
         </ul>

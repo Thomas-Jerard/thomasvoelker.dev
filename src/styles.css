@@ -904,3 +904,51 @@ html.light .app-lock img {
   .builder-hammer { top: 0.45rem; left: 2.7rem; width: 1.9rem; height: 1.9rem; }
   .builder-hammer span { font-size: 1.7rem; }
 }
+
+.practice-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+@media (min-width: 768px) {
+  .practice-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+}
+.practice-item summary {
+  cursor: pointer;
+  list-style: none;
+}
+.practice-item summary::-webkit-details-marker,
+.practice-item summary::marker { display: none; }
+.practice-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.practice-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-fg);
+}
+.practice-plus {
+  flex-shrink: 0;
+  color: var(--color-muted);
+  font-size: 1.15rem;
+  line-height: 1;
+  font-weight: 400;
+}
+.practice-plus::before { content: "+"; }
+.practice-item[open] .practice-plus::before { content: "−"; }
+.practice-brief {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+.practice-more {
+  margin-top: 0.55rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-fg);
+}
