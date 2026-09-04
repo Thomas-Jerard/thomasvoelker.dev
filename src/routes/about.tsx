@@ -42,18 +42,7 @@ function AboutPage() {
               <p className="text-sm">{about.place}</p>
             </div>
           </details>
-        </div>
-      </section>
-
-      <section className="border-t border-border py-16 md:py-24">
-        <div className="page-wrap">
-          <p className="kicker">What I do</p>
-          <h2 className="display mt-3 text-3xl text-fg md:text-5xl">The work.</h2>
-          <ul className="mt-8 grid grid-cols-2 gap-x-6 gap-y-3 text-sm text-fg md:grid-cols-4 md:text-base">
-            {craft.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <CraftLines />
         </div>
       </section>
 
@@ -110,6 +99,88 @@ function AboutPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+const CRAFT_COLORS = ["#ef4444", "#3b82f6", "#9a9a9a", "#ec4899", "#22c55e"] as const;
+
+function CraftLines() {
+  const [done, setDone] = useState(0);
+  const [chars, setChars] = useState(0);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 768px)");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (!desktop.matches || reduce.matches) {
+      setDone(craft.length);
+      setChars(0);
+      return;
+    }
+
+    let line = 0;
+    let i = 0;
+    let timer = 0;
+    setDone(0);
+    setChars(0);
+
+    const type = () => {
+      const word = craft[line];
+      if (i < word.length) {
+        i += 1;
+        setChars(i);
+        timer = window.setTimeout(type, 28);
+        return;
+      }
+      if (line < craft.length - 1) {
+        line += 1;
+        i = 0;
+        setDone(line);
+        setChars(0);
+        timer = window.setTimeout(type, 200);
+        return;
+      }
+      timer = window.setTimeout(() => {
+        line = 0;
+        i = 0;
+        setDone(0);
+        setChars(0);
+        type();
+      }, 2400);
+    };
+
+    timer = window.setTimeout(type, 360);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="craft-block">
+      <ul className="sr-only">
+        {craft.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <div className="craft-credits" aria-hidden="true">
+        <ul className="craft-credits-track">
+          {craft.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <pre className="craft-code" aria-hidden="true">
+        {craft.map((item, i) => {
+          if (i > done) return null;
+          const color = CRAFT_COLORS[i % CRAFT_COLORS.length];
+          const text = i < done ? item : item.slice(0, chars);
+          return (
+            <span key={item} className="craft-line" style={{ color }}>
+              {`* ${text}`}
+              {i === done ? <span className="orilo-caret" aria-hidden="true" /> : null}
+              {"\n"}
+            </span>
+          );
+        })}
+      </pre>
+    </div>
   );
 }
 

@@ -259,19 +259,22 @@ html.light .app-lock img {
   background: #111;
   aspect-ratio: 9 / 16;
 }
+@property --agent-spin {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes agent-spin {
+  to { --agent-spin: 360deg; }
+}
 .about-corner {
   position: absolute;
   width: 3.15rem;
   height: 3.15rem;
   pointer-events: none;
   z-index: 2;
-}
-.about-corner::before,
-.about-corner::after {
-  content: "";
-  position: absolute;
-  background: linear-gradient(
-    90deg,
+  background: conic-gradient(
+    from var(--agent-spin),
     #ef4444 0%,
     #3b82f6 18%,
     #9a9a9a 36%,
@@ -279,42 +282,31 @@ html.light .app-lock img {
     #22c55e 72%,
     #ef4444 100%
   );
-  background-size: 260% 100%;
-  animation: agent-underline 2.6s linear infinite;
+  animation: agent-spin 2.6s linear infinite;
 }
-.about-corner-tr { top: 0; right: 0; }
-.about-corner-tr::before {
+.about-corner-tr {
   top: 0;
   right: 0;
-  left: 0;
-  height: 2px;
+  -webkit-mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+  -webkit-mask-size: 100% 2px, 2px 100%;
+  -webkit-mask-position: top, right;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+  mask-size: 100% 2px, 2px 100%;
+  mask-position: top, right;
+  mask-repeat: no-repeat;
 }
-.about-corner-tr::after {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 2px;
-  background-size: 100% 260%;
-  animation-name: agent-underline-y;
-}
-.about-corner-bl { bottom: 0; left: 0; }
-.about-corner-bl::before {
+.about-corner-bl {
   bottom: 0;
   left: 0;
-  right: 0;
-  height: 2px;
-}
-.about-corner-bl::after {
-  bottom: 0;
-  left: 0;
-  top: 0;
-  width: 2px;
-  background-size: 100% 260%;
-  animation-name: agent-underline-y;
-}
-@keyframes agent-underline-y {
-  from { background-position: 50% 0%; }
-  to { background-position: 50% 240%; }
+  -webkit-mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+  -webkit-mask-size: 100% 2px, 2px 100%;
+  -webkit-mask-position: bottom, left;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: linear-gradient(#000, #000), linear-gradient(#000, #000);
+  mask-size: 100% 2px, 2px 100%;
+  mask-position: bottom, left;
+  mask-repeat: no-repeat;
 }
 .about-shot {
   position: absolute;
@@ -358,6 +350,42 @@ html.light .app-lock img {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--color-muted);
+}
+.craft-block { margin-top: 1.6rem; }
+.craft-credits { display: none; }
+.craft-code {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+.craft-line { display: block; }
+@media (max-width: 767px) {
+  .craft-code { display: none; }
+  .craft-credits {
+    display: block;
+    height: 8.5rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  }
+  .craft-credits-track {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    animation: credits-roll 16s linear infinite;
+  }
+  .craft-credits-track li {
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    color: var(--color-fg);
+    text-align: center;
+  }
+}
+@keyframes credits-roll {
+  from { transform: translateY(8.5rem); }
+  to { transform: translateY(-100%); }
 }
 @media (min-width: 768px) {
   .about-expand summary,
@@ -951,8 +979,8 @@ html.light .app-lock img {
   .logo-belt-track, .groundhog, .builder-hog, .builder-hammer, .app-lock, .app-lock img,
   .ohio-bg, .portrait-motion img, .name-mid, .name-jump, .orilo-caret { animation: none !important; }
   .agent-word::after,
-  .about-corner::before,
-  .about-corner::after { animation: none; }
+  .about-corner { animation: none; }
+  .craft-credits-track { animation: none; transform: none; }
   .name-mid { grid-template-columns: 1fr; }
   .name-jump { transform: none; }
   .orilo-caret { opacity: 1; }
