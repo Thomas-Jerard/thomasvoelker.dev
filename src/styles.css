@@ -248,16 +248,54 @@ html.light .app-lock img {
 .about-copy { order: 0; }
 .about-media { order: 1; min-width: 0; }
 .about-portrait {
+  position: relative;
   width: min(15.5rem, 72vw);
   overflow: hidden;
   background: #111;
+  aspect-ratio: 4 / 5;
 }
 .about-shot {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
   object-position: center 12%;
+  opacity: 0;
+  transition: opacity 800ms var(--ease-smooth-out);
+}
+.about-shot.is-on { opacity: 1; }
+.about-expand {
+  margin-top: 1.5rem;
+  max-width: 36rem;
+}
+.about-expand summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.about-expand summary::-webkit-details-marker,
+.about-expand summary::marker { display: none; }
+.about-lead { color: var(--color-fg); }
+.about-expand .practice-plus {
+  display: inline;
+  margin-left: 0.3rem;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+.about-extra {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+@media (min-width: 768px) {
+  .about-expand summary,
+  .about-extra { font-size: 1.125rem; }
 }
 @media (min-width: 768px) {
   .about-hero {

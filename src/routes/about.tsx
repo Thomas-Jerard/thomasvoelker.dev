@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ContactActions } from "@/components/contact-actions";
 import { JsonLd } from "@/components/json-ld";
-import { LogoBelt } from "@/components/logo-belt";
-import { about, companies, craft, hobbies, site } from "@/data/site";
+import { about, companies, craft, hobbies } from "@/data/site";
 import { breadcrumbJsonLd, pageHead, pages, personJsonLd, webPageJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -24,28 +23,24 @@ function AboutPage() {
       />
       <section className="about-hero page-wrap">
         <div className="about-media">
-          <div className="portrait-frame about-portrait">
-            <img
-              src={site.portrait.square}
-              alt={site.portrait.alt}
-              width={800}
-              height={800}
-              className="about-shot"
-            />
-          </div>
-          <LogoBelt />
+          <AboutPortrait />
         </div>
         <div className="about-copy">
           <p className="kicker">About</p>
           <TypeTitle text={about.title} />
-          <div className="mt-6 max-w-xl space-y-4 text-base leading-relaxed text-muted md:text-lg">
-            <p className="text-fg">{about.lead}</p>
-            <p>{about.studio}</p>
-            <p>{about.path}</p>
-            <p>{about.product}</p>
-            <p>{about.future}</p>
-            <p className="text-sm">{about.place}</p>
-          </div>
+          <details className="about-expand">
+            <summary>
+              <span className="about-lead">{about.lead}</span>
+              <span className="practice-plus" aria-hidden="true" />
+            </summary>
+            <div className="about-extra">
+              <p>{about.studio}</p>
+              <p>{about.path}</p>
+              <p>{about.product}</p>
+              <p>{about.future}</p>
+              <p className="text-sm">{about.place}</p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -114,6 +109,32 @@ function AboutPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function AboutPortrait() {
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || about.photos.length < 2) return;
+    const id = window.setInterval(() => {
+      setActive((i) => (i + 1) % about.photos.length);
+    }, 4200);
+    return () => window.clearInterval(id);
+  }, []);
+  return (
+    <div className="portrait-frame about-portrait">
+      {about.photos.map((photo, i) => (
+        <img
+          key={photo.src}
+          src={photo.src}
+          alt={photo.alt}
+          width={1200}
+          height={1500}
+          className={i === active ? "about-shot is-on" : "about-shot"}
+        />
+      ))}
+    </div>
   );
 }
 
