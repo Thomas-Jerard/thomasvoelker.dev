@@ -251,7 +251,7 @@ function ContactBand() {
       <div className="page-wrap">
         <p className="kicker">Let's Connect</p>
         <h2 className="display mt-3 max-w-3xl text-3xl text-fg md:text-5xl text-balance">
-          Feel Free to Shoot me a quick Email or Call my Agent to get in Contact with me!
+          Feel Free to Shoot me a quick Email or Call my Agent
         </h2>
         <div className="mt-8">
           <ContactActions />
