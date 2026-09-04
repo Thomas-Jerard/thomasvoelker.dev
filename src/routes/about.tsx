@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ContactActions } from "@/components/contact-actions";
 import { JsonLd } from "@/components/json-ld";
 import { LoopVideo } from "@/components/loop-video";
-import { about, companies, craft, hobbies } from "@/data/site";
+import { about, craft, hobbies } from "@/data/site";
 import { breadcrumbJsonLd, pageHead, pages, personJsonLd, webPageJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/about")({
@@ -44,27 +44,6 @@ function AboutPage() {
           </details>
         </div>
         <CraftLines />
-      </section>
-
-      <section className="border-t border-border py-16 md:py-24">
-        <div className="page-wrap">
-          <p className="kicker">Companies</p>
-          <h2 className="display mt-3 text-3xl text-fg md:text-5xl">
-            The companies I founded and run.
-          </h2>
-          <ul className="mt-10 grid gap-10 md:grid-cols-2">
-            {companies.map((company) => (
-              <li key={company.name}>
-                <p className="kicker">{company.status}</p>
-                <h3 className="display mt-2 text-3xl text-fg">{company.name}</h3>
-                <p className="mt-3 max-w-md text-sm leading-relaxed text-muted md:text-base">
-                  {company.body}
-                </p>
-                <p className="mt-4 text-sm text-fg">{company.role}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
 
       <section className="border-t border-border py-16 md:py-24">
