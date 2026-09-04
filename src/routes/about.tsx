@@ -42,8 +42,8 @@ function AboutPage() {
               <p className="text-sm">{about.place}</p>
             </div>
           </details>
+          <CraftLines />
         </div>
-        <CraftLines />
       </section>
 
       <section className="border-t border-border py-16 md:py-24">
@@ -109,9 +109,8 @@ function CraftLines() {
   const [chars, setChars] = useState(0);
 
   useEffect(() => {
-    const desktop = window.matchMedia("(min-width: 768px)");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (!desktop.matches || reduce.matches) {
+    if (reduce.matches) {
       setDone(craft.length);
       setChars(0);
       return;
@@ -154,19 +153,7 @@ function CraftLines() {
 
   return (
     <div className="craft-block">
-      <ul className="sr-only">
-        {craft.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-      <div className="craft-credits" aria-hidden="true">
-        <ul className="craft-credits-track">
-          {craft.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </div>
-      <pre className="craft-code" aria-hidden="true">
+      <pre className="craft-code">
         {craft.map((item, i) => {
           if (i > done) return null;
           const color = CRAFT_COLORS[i % CRAFT_COLORS.length];
