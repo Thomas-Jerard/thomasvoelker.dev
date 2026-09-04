@@ -250,6 +250,7 @@ html.light .app-lock img {
 .about-portrait-wrap {
   position: relative;
   width: min(18rem, 78vw);
+  padding: 0.85rem;
 }
 .about-portrait {
   position: relative;
@@ -260,8 +261,8 @@ html.light .app-lock img {
 }
 .about-corner {
   position: absolute;
-  width: 2.85rem;
-  height: 2.85rem;
+  width: 3.15rem;
+  height: 3.15rem;
   pointer-events: none;
   z-index: 2;
 }
@@ -286,13 +287,13 @@ html.light .app-lock img {
   top: 0;
   right: 0;
   left: 0;
-  height: 1px;
+  height: 2px;
 }
 .about-corner-tr::after {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 1px;
+  width: 2px;
   background-size: 100% 260%;
   animation-name: agent-underline-y;
 }
@@ -301,13 +302,13 @@ html.light .app-lock img {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 2px;
 }
 .about-corner-bl::after {
   bottom: 0;
   left: 0;
   top: 0;
-  width: 1px;
+  width: 2px;
   background-size: 100% 260%;
   animation-name: agent-underline-y;
 }
