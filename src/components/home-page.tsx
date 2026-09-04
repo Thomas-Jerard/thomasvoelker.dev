@@ -187,13 +187,12 @@ function Practice() {
             <li key={item.id}>
               <details className="practice-item">
                 <summary>
-                  <span className="practice-head">
-                    <span className="practice-title">{item.title}</span>
+                  <span className="practice-title">{item.title}</span>
+                  <span className="practice-row">
+                    <span className="practice-brief">{item.brief}</span>
                     <span className="practice-plus" aria-hidden="true" />
                   </span>
-                  <span className="practice-brief">{item.brief}</span>
                 </summary>
-                <p className="practice-more">{item.more}</p>
               </details>
             </li>
           ))}
