@@ -240,17 +240,18 @@ html.light .app-lock img {
 .shot-portrait { aspect-ratio: 4 / 5; }
 
 .about-hero {
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.5rem 0.85rem;
   padding: 2.25rem 0 3rem;
+  align-items: start;
 }
-.about-copy { order: 0; }
-.about-media { order: 1; min-width: 0; }
+.about-copy { grid-column: 1 / -1; grid-row: 1; }
+.about-media { grid-column: 1; grid-row: 2; min-width: 0; }
 .about-portrait-wrap {
   position: relative;
-  width: min(18rem, 78vw);
-  padding: 0.85rem;
+  width: min(11.25rem, 46vw);
+  padding: 0.65rem;
 }
 .about-portrait {
   position: relative;
@@ -351,7 +352,14 @@ html.light .app-lock img {
   line-height: 1.7;
   color: var(--color-muted);
 }
-.craft-block { margin-top: 1.6rem; }
+.craft-block {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 0;
+  min-width: 0;
+  align-self: stretch;
+  height: 100%;
+}
 .craft-credits { display: none; }
 .craft-code {
   margin: 0;
@@ -365,27 +373,32 @@ html.light .app-lock img {
   .craft-code { display: none; }
   .craft-credits {
     display: block;
-    height: 8.5rem;
+    position: relative;
+    height: 100%;
+    min-height: 16rem;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
-    mask-image: linear-gradient(to bottom, transparent 0%, #000 22%, #000 78%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 84%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 16%, #000 84%, transparent 100%);
   }
   .craft-credits-track {
+    position: absolute;
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
-    animation: credits-roll 16s linear infinite;
+    animation: credits-roll 18s linear infinite;
   }
   .craft-credits-track li {
-    font-size: 0.95rem;
-    letter-spacing: 0.06em;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
     color: var(--color-fg);
-    text-align: center;
+    text-align: left;
   }
 }
 @keyframes credits-roll {
-  from { transform: translateY(8.5rem); }
-  to { transform: translateY(-100%); }
+  from { top: 100%; transform: translateY(0); }
+  to { top: -100%; transform: translateY(-100%); }
 }
 @media (min-width: 768px) {
   .about-expand summary,
@@ -395,13 +408,28 @@ html.light .app-lock img {
   .about-hero {
     display: grid;
     grid-template-columns: 5fr 7fr;
+    grid-template-rows: auto auto;
     align-items: start;
-    gap: 2.5rem;
+    column-gap: 2.5rem;
+    row-gap: 0;
     padding: 6rem 0;
   }
-  .about-copy,
-  .about-media { order: 0; }
-  .about-portrait-wrap { width: min(22rem, 100%); }
+  .about-media {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  .about-copy {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .craft-block {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 1.6rem;
+    height: auto;
+    align-self: start;
+  }
+  .about-portrait-wrap { width: min(22rem, 100%); padding: 0.85rem; }
 }
 .project-shot img {
   width: 100%;

@@ -163,6 +163,8 @@ export const craft = [
   "Health & fitness technology",
   "AI infrastructure",
   "Cloud Agents",
+  "AI Analyst",
+  "LLM use cases",
 ] as const;
 
 export const companies = [

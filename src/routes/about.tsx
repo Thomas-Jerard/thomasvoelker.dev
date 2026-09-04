@@ -42,8 +42,8 @@ function AboutPage() {
               <p className="text-sm">{about.place}</p>
             </div>
           </details>
-          <CraftLines />
         </div>
+        <CraftLines />
       </section>
 
       <section className="border-t border-border py-16 md:py-24">
