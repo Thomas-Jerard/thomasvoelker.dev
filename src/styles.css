@@ -645,15 +645,25 @@ html.light .app-lock img {
 }
 .builder-stage-gym {
   display: block;
-  left: 0.85rem;
-  top: 0;
-  width: 2.4rem;
-  height: 2.35rem;
+  inset: 0;
+  width: auto;
+  height: auto;
 }
 .app-user-gym {
   position: relative;
   overflow: hidden;
-  padding-top: 2.1rem;
+}
+.builder-stage-gym .builder-hog {
+  left: auto;
+  right: 0.7rem;
+  bottom: 0;
+  font-size: 2.45rem;
+  animation-name: builder-pop-card;
+}
+@keyframes builder-pop-card {
+  0%, 10% { transform: translateY(140%); }
+  18%, 70% { transform: translateY(6%); }
+  82%, 100% { transform: translateY(140%); }
 }
 .builder-hog {
   position: absolute;
@@ -699,7 +709,7 @@ html.light .app-lock img {
   padding: 1rem;
 }
 @media (min-width: 768px) {
-  .app-module-users li { padding-top: 2.1rem; }
+  .app-module-users li { padding: 1rem; }
 }
 @keyframes runner-bob {
   0%, 100% { transform: translateY(0); }
@@ -1017,17 +1027,9 @@ html.light .app-lock img {
   .app-lock-wrap,
   .app-lock { width: 4.5rem; height: 4.5rem; }
   .app-lock img { width: 2.7rem; height: 2.7rem; }
-  .app-status-wrap { padding-top: 2.35rem; }
-  .builder-stage-gym { display: none; }
-  .builder-stage-status {
-    display: block;
-    left: 0.35rem;
-    top: 0;
-    width: 2.7rem;
-    height: 2.6rem;
-  }
+  .app-status-wrap { padding-top: 0; }
   .app-user-gym { padding-top: 1rem; }
-  .builder-hog { font-size: 1.85rem; }
+  .builder-stage-gym .builder-hog { font-size: 2.15rem; right: 0.5rem; }
   .builder-hammer { top: 0.45rem; left: 2.7rem; width: 1.9rem; height: 1.9rem; }
   .builder-hammer span { font-size: 1.7rem; }
 }
