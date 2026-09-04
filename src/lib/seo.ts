@@ -58,9 +58,9 @@ export const pages = {
   },
   about: {
     path: "/about",
-    title: "About — Thomas Voelker",
+    title: "Who is Thomas Voelker?",
     description:
-      "Thomas Jerard Voelker is a founder, developer, and product builder in Greensburg, Pennsylvania. He leads 7homais Limited and Orilo.",
+      "Thomas Jerard Voelker is a developer, product builder, entrepreneur, and AI analyst in the Pittsburgh metro. He leads 7homais Limited and Orilo.",
   },
   work: {
     path: "/work",

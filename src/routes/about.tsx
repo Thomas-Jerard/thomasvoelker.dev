@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { ContactActions } from "@/components/contact-actions";
 import { JsonLd } from "@/components/json-ld";
@@ -36,14 +37,14 @@ function AboutPage() {
         </div>
         <div className="about-copy">
           <p className="kicker">About</p>
-          <h1 className="display mt-3 text-4xl text-fg md:text-6xl">Who I am.</h1>
+          <TypeTitle text={about.title} />
           <div className="mt-6 max-w-xl space-y-4 text-base leading-relaxed text-muted md:text-lg">
             <p className="text-fg">{about.lead}</p>
             <p>{about.studio}</p>
             <p>{about.path}</p>
-            <p>{about.school}</p>
             <p>{about.product}</p>
-            <p className="text-sm">{site.location}</p>
+            <p>{about.future}</p>
+            <p className="text-sm">{about.place}</p>
           </div>
         </div>
       </section>
@@ -113,5 +114,42 @@ function AboutPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function TypeTitle({ text }: { text: string }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      setCount(text.length);
+      return;
+    }
+    setCount(0);
+    const delay = 200;
+    const span = 1200;
+    let raf = 0;
+    let started = 0;
+    const wait = window.setTimeout(() => {
+      started = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min(1, (now - started) / span);
+        setCount(Math.round(p * text.length));
+        if (p < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    }, delay);
+    return () => {
+      window.clearTimeout(wait);
+      cancelAnimationFrame(raf);
+    };
+  }, [text]);
+
+  return (
+    <h1 className="display mt-3 text-4xl text-fg md:text-6xl" aria-label={text}>
+      {text.slice(0, count)}
+      <span className="orilo-caret" aria-hidden="true" />
+    </h1>
   );
 }

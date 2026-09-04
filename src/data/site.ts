@@ -135,13 +135,15 @@ export const education = {
 } as const;
 
 export const about = {
-  lead: "Developer, product builder, and entrepreneur. I build useful digital experiences and lead 7homais Limited — the company behind Orilo.",
+  title: "Who is Thomas Voelker?",
+  lead: "Developer, product builder, entrepreneur, and AI analyst. Currently building useful digital experiences and leading 7homais Limited, the company behind Orilo.",
   studio:
-    "I lead 7homais Limited, the company behind Orilo. The studio is founder-led and agent-backed: design, upkeep, hosting, and SEO for businesses that need a real website.",
-  path: "Before that I trained AI models at Mercor, worked as a PCT on a cardiac PCU at UPMC, and spent time in operations at ADP and Capstone Logistics.",
-  school: "Ohio University, B.S. Biology, honors. Proud Bobcat.",
+    "When I founded Orilo, my goal was simple. Create a web design agency to help small businesses and creators build a reputable online presence without need for a large upfront deposit. The studio is founder-led and agent-backed, focusing on: design, upkeep, hosting, and SEO for our clients that need website help.",
+  path: "While building Orilo, I assist in post-training AI models for frontier labs. Before that, I worked in healthcare on a cardiac PCU at UPMC. Moreover, I have spent time in operations at ADP and Capstone Logistics.",
   product:
-    "Independently I’m building connective software for gyms and their members — still locked while it ships.",
+    "Independently, I am working on building connective software for gyms and their members. This software's capabilities are designed to help bridge the gap between large commercial gyms and smaller locally owned locations.",
+  future: "I continue to expand my work into various ventures and have some awesome aspirations for future projects",
+  place: "Pittsburgh Metro 📍",
 } as const;
 
 export const craft = [
