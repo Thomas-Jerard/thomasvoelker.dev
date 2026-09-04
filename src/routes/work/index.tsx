@@ -42,7 +42,7 @@ function WorkIndex() {
             <div className="project-shot shot-wide flex items-center justify-center bg-surface-soft">
               <img src={connectiveApp.icon} alt="Connective Fitness APP icon" className="h-20 w-20 object-contain" />
             </div>
-            <p className="kicker mt-4">Independent product</p>
+            <p className="kicker mt-4">SAAS Development</p>
             <p className="mt-2 text-2xl text-fg">{connectiveApp.name}</p>
             <p className="mt-1 text-sm text-muted">{connectiveApp.status}</p>
           </Link>

@@ -174,9 +174,10 @@ function Practice() {
   return (
     <section className="border-t border-border py-16 md:py-24">
       <div className="page-wrap">
-        <p className="kicker">04 — Practice</p>
-        <h2 className="display mt-3 max-w-2xl text-3xl text-fg md:text-4xl text-balance">
-          Daily work in large language models, agentic frameworks, and cloud agents.
+        <p className="kicker">04 — LLM</p>
+        <h2 className="display mt-3 max-w-3xl text-3xl text-fg md:text-4xl text-balance">
+          Fluent in LLM use cases, agentic frameworks, and cloud{" "}
+          <span className="agent-word">agents</span>.
         </h2>
         <div className="mt-8">
           <Groundhogs />

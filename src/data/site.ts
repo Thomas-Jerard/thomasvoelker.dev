@@ -63,21 +63,21 @@ export const featuredClients = [
     name: "Reinforce Gym",
     url: "https://www.reinforcegym.com/",
     image: "/images/projects/reinforce.jpg",
-    blurb: "A 24/7 gym site that can carry the floor.",
+    blurb: "A 24/7 gym site displaying amenities and features.",
   },
   {
     slug: "prime-stretch",
     name: "Prime Stretch",
     url: "https://primestretchpa.com/",
     image: "/images/projects/prime-stretch.jpg",
-    blurb: "A quiet front door for assisted stretching.",
+    blurb: "A site displaying a rehabilitation and physical support studio.",
   },
   {
     slug: "pevarnik",
     name: "Pevarnik Bros.",
     url: "https://pevarnik.com/",
     image: "/images/projects/pevarnik.jpg",
-    blurb: "A contractor site that can carry the work.",
+    blurb: "A contractor site resembling professional commercial work.",
   },
 ] as const;
 
@@ -86,10 +86,10 @@ export const connectiveApp = {
   status: "Development in Progress",
   icon: "/images/brand/connective-icon.svg",
   summary:
-    "Holistic software that sits between a gym and its members. Scan-in access, a personal training dashboard, an AI assistant, generated training plans, nutrition, and recovery — practical information both sides can actually use.",
+    "Holistic software that sits between a gym and its members. Scan-in access, a personal training dashboard, an AI assistant, generated training plans, nutrition, and recovery. Providing practical use cases for members and staff alike.",
   users: [
     { title: "For the gym", body: "Scan-in access and a live picture of who’s on the floor." },
-    { title: "For the member", body: "Training, diet, and recovery in one dashboard — not five apps." },
+    { title: "For the member", body: "Scan-in, training, diet, recovery, and gym classes all under one roof." },
   ],
 } as const;
 

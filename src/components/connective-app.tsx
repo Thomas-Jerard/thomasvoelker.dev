@@ -9,7 +9,7 @@ export function ConnectiveAppModule() {
       <div className="page-wrap">
         <SectionHeading
           index="03"
-          label="Independent product"
+          label="SAAS Development"
           title="Connective software for gyms and members."
         />
         <Link
