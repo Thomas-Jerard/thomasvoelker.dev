@@ -53,7 +53,6 @@ function OriloPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Work", path: "/work" },
           { name: "Orilo", path: "/work/orilo" },
         ])}
       />
@@ -99,7 +98,6 @@ function AppPage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Work", path: "/work" },
           { name: "Connective Fitness APP", path: "/work/connective-fitness" },
         ])}
       />
@@ -134,7 +132,6 @@ function ClientPage({ client }: { client: (typeof featuredClients)[number] }) {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Home", path: "/" },
-          { name: "Work", path: "/work" },
           { name: client.name, path: seo.path },
         ])}
       />

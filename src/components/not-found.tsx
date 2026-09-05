@@ -12,7 +12,7 @@ export function NotFoundPage() {
         <Link to="/" className="text-fg hover:text-muted">
           Home
         </Link>
-        <Link to="/work" className="text-fg hover:text-muted">
+        <Link to="/" hash="work" className="text-fg hover:text-muted">
           Work
         </Link>
         <Link to="/about" className="text-fg hover:text-muted">

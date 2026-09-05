@@ -4,9 +4,9 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { Wordmark } from "@/components/wordmark";
 
 const links = [
-  { to: "/work", label: "Work" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", hash: "work", label: "Work" },
+  { to: "/about", hash: undefined, label: "About" },
+  { to: "/contact", hash: undefined, label: "Contact" },
 ] as const;
 
 export function SiteHeader() {
@@ -16,7 +16,7 @@ export function SiteHeader() {
         <Wordmark />
         <nav className="flex min-w-0 items-center gap-3 text-xs text-muted sm:gap-6 sm:text-sm md:gap-6">
           {links.map((link) => (
-            <Link key={link.label} to={link.to} className="hover:text-fg">
+            <Link key={link.label} to={link.to} hash={link.hash} className="hover:text-fg">
               {link.label}
             </Link>
           ))}

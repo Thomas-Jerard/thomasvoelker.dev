@@ -98,7 +98,6 @@ export function clientPage(slug: string) {
 export const sitemapPaths = [
   "/",
   "/about",
-  "/work",
   "/work/orilo",
   "/work/connective-fitness",
   ...featuredClients.map((c) => `/work/${c.slug}`),

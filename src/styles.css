@@ -1222,27 +1222,3 @@ html.light .work-slide-icon img {
 
 .shot-contain img { object-fit: contain; transform: none; }
 .group:hover .shot-contain img { transform: none; }
-
-.work-page {
-  min-height: calc(100svh - var(--header-h));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1.25rem 0 2rem;
-}
-.studio-full {
-  width: min(1120px, calc(100% - 2rem));
-  margin-inline: auto;
-}
-.studio-full .studio-stage {
-  height: min(56svh, 38rem);
-}
-.studio-full .studio-card {
-  width: min(88%, 62rem);
-}
-@media (max-width: 767px) {
-  .work-page { padding: 0.85rem 0 1.35rem; }
-  .studio-full .studio-stage { height: min(42svh, 20rem); }
-  .studio-full .studio-card { width: 96%; }
-  .studio-full .studio-nav { display: flex; margin-top: 0.85rem; }
-}

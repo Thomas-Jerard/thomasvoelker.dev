@@ -1,16 +1,14 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { site } from "@/data/site";
 import { Wordmark } from "@/components/wordmark";
 
 const links = [
-  { to: "/work", label: "Work" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", hash: "work", label: "Work" },
+  { to: "/about", hash: undefined, label: "About" },
+  { to: "/contact", hash: undefined, label: "Contact" },
 ] as const;
 
 export function SiteFooter() {
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  if (path === "/work" || path === "/work/") return null;
   return (
     <footer className="border-t border-border">
       <div className="page-wrap py-10 md:py-12">
@@ -21,7 +19,7 @@ export function SiteFooter() {
           </div>
           <nav className="flex flex-col gap-3 text-sm text-muted">
             {links.map((link) => (
-              <Link key={link.label} to={link.to} className="hover:text-fg">
+              <Link key={link.label} to={link.to} hash={link.hash} className="hover:text-fg">
                 {link.label}
               </Link>
             ))}

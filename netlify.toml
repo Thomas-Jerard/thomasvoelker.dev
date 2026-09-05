@@ -12,12 +12,12 @@
 
 [[redirects]]
   from = "/projects"
-  to = "/work"
+  to = "/"
   status = 301
 
 [[redirects]]
   from = "/portfolio"
-  to = "/work"
+  to = "/"
   status = 301
 
 [[redirects]]
