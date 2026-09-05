@@ -31,9 +31,9 @@ export const workSlides = [
 export function WorkCarousel() {
   const count = workSlides.length;
   const [active, setActive] = useState(0);
+  const root = useRef<HTMLDivElement>(null);
   const startX = useRef<number | null>(null);
   const locked = useRef(false);
-  const current = workSlides[active] ?? workSlides[0];
 
   const go = (dir: -1 | 1) => {
     if (locked.current) return;
@@ -41,36 +41,39 @@ export function WorkCarousel() {
     setActive((n) => (n + dir + count) % count);
     window.setTimeout(() => {
       locked.current = false;
-    }, 640);
+    }, 520);
   };
 
   useEffect(() => {
+    const el = root.current;
+    if (!el) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft" || e.key === "PageUp") {
+      if (e.key === "ArrowLeft") {
         e.preventDefault();
         go(-1);
       }
-      if (e.key === "ArrowRight" || e.key === "PageDown" || e.key === " ") {
+      if (e.key === "ArrowRight") {
         e.preventDefault();
         go(1);
       }
     };
     const onWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaY) < 24 && Math.abs(e.deltaX) < 24) return;
+      if (Math.abs(e.deltaY) < 30 && Math.abs(e.deltaX) < 30) return;
       e.preventDefault();
       if (e.deltaY > 0 || e.deltaX > 0) go(1);
       else go(-1);
     };
     window.addEventListener("keydown", onKey);
-    window.addEventListener("wheel", onWheel, { passive: false });
+    el.addEventListener("wheel", onWheel, { passive: false });
     return () => {
       window.removeEventListener("keydown", onKey);
-      window.removeEventListener("wheel", onWheel);
+      el.removeEventListener("wheel", onWheel);
     };
   }, [count]);
 
   return (
     <div
+      ref={root}
       className="work-carousel"
       style={{ "--work-i": String(active) } as CSSProperties}
       onTouchStart={(e) => {
@@ -89,30 +92,32 @@ export function WorkCarousel() {
       <div className="work-track">
         {workSlides.map((slide) => (
           <article key={slide.slug} className="work-slide">
-            {"image" in slide && slide.image ? (
-              <div className="work-slide-media">
-                <img src={slide.image} alt={`${slide.name} website`} />
+            <div className="work-slide-inner page-wrap">
+              {"image" in slide && slide.image ? (
+                <div className="work-slide-media">
+                  <img src={slide.image} alt={`${slide.name} website`} />
+                </div>
+              ) : (
+                <div className="work-slide-media work-slide-icon">
+                  <img src={"icon" in slide ? slide.icon : ""} alt="" />
+                </div>
+              )}
+              <div className="work-slide-copy">
+                <p className="kicker">{slide.kicker}</p>
+                <h2 className="display mt-2 text-2xl text-fg md:text-4xl">{slide.name}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{slide.blurb}</p>
+                <Link
+                  to="/work/$slug"
+                  params={{ slug: slide.slug }}
+                  className="mt-4 inline-flex items-center gap-1 text-sm text-fg no-underline hover:text-muted"
+                >
+                  View project
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
               </div>
-            ) : (
-              <div className="work-slide-media work-slide-icon">
-                <img src={"icon" in slide ? slide.icon : ""} alt="" />
-              </div>
-            )}
+            </div>
           </article>
         ))}
-      </div>
-      <div className="work-slide-copy page-wrap">
-        <p className="kicker">{current.kicker}</p>
-        <h2 className="display mt-2 text-3xl text-fg md:text-5xl">{current.name}</h2>
-        <p className="mt-2 max-w-xl text-sm text-muted md:text-base">{current.blurb}</p>
-        <Link
-          to="/work/$slug"
-          params={{ slug: current.slug }}
-          className="mt-4 inline-flex items-center gap-1 text-sm text-fg no-underline hover:text-muted"
-        >
-          View project
-          <ArrowUpRight className="size-3.5" />
-        </Link>
       </div>
       <div className="work-nav">
         <Button type="button" variant="outline" onClick={() => go(-1)} aria-label="Previous project">
