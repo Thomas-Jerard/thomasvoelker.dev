@@ -4,19 +4,33 @@ import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { featuredClients } from "@/data/site";
 import { Button } from "@/components/ui/button";
 
+export type StudioSlide = {
+  slug: string;
+  name: string;
+  blurb: string;
+  image: string;
+  fit?: "cover" | "contain";
+};
+
 function slot(index: number, active: number, count: number) {
   const rel = (index - active + count) % count;
   if (rel === 0) return "front";
   if (rel === 1) return "right";
-  return "left";
+  if (rel === count - 1) return "left";
+  return "back";
 }
 
-export function StudioCarousel() {
-  const count = featuredClients.length;
+type Props = {
+  items?: readonly StudioSlide[];
+  variant?: "home" | "full";
+};
+
+export function StudioCarousel({ items = featuredClients, variant = "home" }: Props) {
+  const count = items.length;
   const [active, setActive] = useState(0);
   const pause = useRef(false);
   const startX = useRef<number | null>(null);
-  const current = featuredClients[active] ?? featuredClients[0];
+  const current = items[active] ?? items[0];
 
   const prev = () => setActive((n) => (n - 1 + count) % count);
   const next = () => setActive((n) => (n + 1) % count);
@@ -30,7 +44,7 @@ export function StudioCarousel() {
 
   return (
     <div
-      className="studio-carousel outline-none"
+      className={["studio-carousel", variant === "full" ? "studio-full" : ""].filter(Boolean).join(" ")}
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "ArrowLeft") {
@@ -64,31 +78,32 @@ export function StudioCarousel() {
       }}
     >
       <div className="studio-stage" aria-live="polite">
-        {featuredClients.map((client, i) => {
+        {items.map((item, i) => {
           const pos = slot(i, active, count);
           const isFront = pos === "front";
+          const shot = (
+            <div className={item.fit === "contain" ? "project-shot shot-wide shot-contain" : "project-shot shot-wide"}>
+              <img src={item.image} alt={`${item.name} website`} />
+            </div>
+          );
           return (
-            <article key={client.slug} className="studio-card" data-pos={pos}>
+            <article key={item.slug} className="studio-card" data-pos={pos}>
               {isFront ? (
                 <Link
                   to="/work/$slug"
-                  params={{ slug: client.slug }}
+                  params={{ slug: item.slug }}
                   className="studio-face group block no-underline"
                 >
-                  <div className="project-shot shot-wide">
-                    <img src={client.image} alt={`${client.name} website`} />
-                  </div>
+                  {shot}
                 </Link>
               ) : (
                 <button
                   type="button"
                   className="studio-face studio-face-btn"
                   onClick={() => setActive(i)}
-                  aria-label={`Show ${client.name}`}
+                  aria-label={`Show ${item.name}`}
                 >
-                  <div className="project-shot shot-wide">
-                    <img src={client.image} alt={`${client.name} website`} />
-                  </div>
+                  {shot}
                 </button>
               )}
             </article>

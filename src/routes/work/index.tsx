@@ -1,7 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { JsonLd } from "@/components/json-ld";
-import { WorkCarousel } from "@/components/work-carousel";
+import { StudioCarousel } from "@/components/studio-carousel";
+import { connectiveApp, featuredClients, featuredVenture } from "@/data/site";
 import { breadcrumbJsonLd, pageHead, pages, webPageJsonLd, workListJsonLd } from "@/lib/seo";
+
+const workItems = [
+  {
+    slug: featuredVenture.slug,
+    name: featuredVenture.name,
+    blurb: featuredVenture.blurb,
+    image: featuredVenture.image,
+  },
+  {
+    slug: "connective-fitness",
+    name: connectiveApp.name,
+    blurb: connectiveApp.status,
+    image: connectiveApp.icon,
+    fit: "contain" as const,
+  },
+  ...featuredClients.map((client) => ({
+    slug: client.slug,
+    name: client.name,
+    blurb: client.blurb,
+    image: client.image,
+  })),
+];
 
 export const Route = createFileRoute("/work/")({
   component: WorkIndex,
@@ -19,7 +42,7 @@ function WorkIndex() {
           { name: "Work", path: "/work" },
         ])}
       />
-      <WorkCarousel />
+      <StudioCarousel items={workItems} variant="full" />
     </main>
   );
 }
