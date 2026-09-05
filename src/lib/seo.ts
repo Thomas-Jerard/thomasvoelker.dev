@@ -151,10 +151,7 @@ export function personJsonLd() {
       "Agentic frameworks",
       "Fitness technology",
     ],
-    sameAs: [
-      ...site.socials.map((s) => s.href),
-      "https://github.com/Thomas-Jerard",
-    ],
+    sameAs: site.socials.map((s) => s.href),
   };
 }
 

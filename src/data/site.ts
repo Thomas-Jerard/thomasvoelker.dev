@@ -25,6 +25,7 @@ export const site = {
   },
   socials: [
     { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/thomas-voelker/" },
+    { id: "github", label: "GitHub", href: "https://github.com/Thomas-Jerard" },
     { id: "x", label: "X", href: "https://x.com/voelker_thomas" },
     { id: "instagram", label: "Instagram", href: "https://www.instagram.com/tjvolky/" },
   ],
