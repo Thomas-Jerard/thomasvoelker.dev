@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { site } from "@/data/site";
 import { Wordmark } from "@/components/wordmark";
 
@@ -9,6 +9,8 @@ const links = [
 ] as const;
 
 export function SiteFooter() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  if (path === "/work" || path === "/work/") return null;
   return (
     <footer className="border-t border-border">
       <div className="page-wrap py-10 md:py-12">
