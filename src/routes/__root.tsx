@@ -18,7 +18,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Thomas Jerard Voelker is a founder, developer, and product builder in Greensburg, Pennsylvania. He leads Orilo, a founder-led, agent-backed website studio.",
+          "Thomas Jerard Voelker is a founder, developer, and product builder in the Greater Pittsburgh Region. He leads Orilo, a founder-led, agent-backed website studio.",
       },
       { name: "theme-color", content: "#050505" },
       { name: "author", content: "Thomas Jerard Voelker" },

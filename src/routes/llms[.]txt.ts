@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 const body = `# Thomas Voelker
 
-> Founder of Orilo. Developer and product builder in Greensburg, Pennsylvania.
+> Founder of Orilo. Developer and product builder in the Greater Pittsburgh Region.
 
 - [Home](https://thomasvoelker.dev/): Thomas Voelker — founder-led, agent-backed studio work and independent product.
 - [About](https://thomasvoelker.dev/about): Background, companies, education, and hobbies.
