@@ -10,6 +10,7 @@ export const site = {
     role: "Personal Assistant",
     phone: "+12137290516",
     display: "(213) 729-0516",
+    portrait: "/images/profile/sara.jpg",
   },
   availability: "Available for select projects",
   headline: "I build cool stuff with AI",

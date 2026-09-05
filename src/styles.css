@@ -1222,3 +1222,39 @@ html.light .work-slide-icon img {
 
 .shot-contain img { object-fit: contain; transform: none; }
 .group:hover .shot-contain img { transform: none; }
+
+.contact-hero {
+  display: grid;
+  gap: 1.75rem;
+  align-items: start;
+}
+.contact-sara {
+  display: block;
+  width: min(16rem, 70vw);
+  color: inherit;
+}
+.contact-sara img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: center 12%;
+  background: var(--color-surface);
+}
+.contact-sara span {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+@media (min-width: 768px) {
+  .contact-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 18.5rem);
+    gap: 3.5rem;
+    align-items: end;
+  }
+  .contact-sara { width: 100%; }
+}
