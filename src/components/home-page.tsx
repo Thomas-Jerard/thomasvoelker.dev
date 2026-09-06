@@ -40,13 +40,13 @@ export function HomePage() {
 
 function NameLockup() {
   return (
-    <p className="name-lockup display reveal" aria-label="Thomas Jerard Voelker">
+    <h1 className="name-lockup display reveal" aria-label="Thomas Jerard Voelker">
       <span className="name-first">Thomas&nbsp;</span>
       <span className="name-mid" aria-hidden="true">
         <span className="name-jump">Jerard&nbsp;</span>
       </span>
       <span className="name-last">Voelker.</span>
-    </p>
+    </h1>
   );
 }
 
@@ -55,9 +55,9 @@ function Hero() {
     <section className="page-wrap grid min-w-0 items-start gap-8 pb-12 pt-8 md:grid-cols-12 md:items-end md:gap-10 md:pb-20 md:pt-16">
       <div className="min-w-0 md:col-span-7">
         <NameLockup />
-        <h1 className="display reveal reveal-delay-1 mt-5 text-[2.15rem] text-fg sm:text-5xl md:text-6xl text-balance">
+        <p className="display reveal reveal-delay-1 mt-5 text-[2.15rem] text-fg sm:text-5xl md:text-6xl text-balance">
           I build cool stuff with AI
-        </h1>
+        </p>
         <p className="reveal reveal-delay-2 mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg text-pretty">
           {site.tagline} This site is mine.
         </p>

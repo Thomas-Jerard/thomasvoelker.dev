@@ -183,9 +183,12 @@ function TypeTitle({ text }: { text: string }) {
   }, [text]);
 
   return (
-    <h1 className="display mt-3 text-4xl text-fg md:text-6xl" aria-label={text}>
-      {text.slice(0, count)}
-      <span className="orilo-caret" aria-hidden="true" />
+    <h1 className="display mt-3 text-4xl text-fg md:text-6xl">
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">
+        {text.slice(0, count)}
+        <span className="orilo-caret" />
+      </span>
     </h1>
   );
 }
