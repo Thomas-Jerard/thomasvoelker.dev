@@ -60,7 +60,7 @@ export const pages = {
     path: "/about",
     title: "Who is Thomas Voelker?",
     description:
-      "Thomas Jerard Voelker is a developer, product builder, entrepreneur, and AI analyst in the Greater Pittsburgh Region. He leads 7homais Limited and Orilo.",
+      "Thomas Voelker, founder of Orilo, Greater Pittsburgh. Developer, product builder, entrepreneur, and AI analyst. He leads 7homais Limited.",
   },
   work: {
     path: "/work",
@@ -71,7 +71,7 @@ export const pages = {
   contact: {
     path: "/contact",
     title: "Contact — Thomas Voelker",
-    description: `Email ${site.email} or call Sara at ${site.agent.display}. Thomas Voelker — founder of Orilo in the Greater Pittsburgh Region.`,
+    description: `Thomas Voelker, founder of Orilo, Greater Pittsburgh. Email ${site.email} or call Sara at ${site.agent.display}.`,
   },
   orilo: {
     path: "/work/orilo",

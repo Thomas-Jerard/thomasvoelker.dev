@@ -17,7 +17,7 @@ export const site = {
   tagline:
     "I run Orilo and I’m building connective software for gyms and the people who train in them.",
   description:
-    "Thomas Jerard Voelker is a founder, developer, and product builder in the Greater Pittsburgh Region. He leads Orilo, a founder-led, agent-backed website studio.",
+    "Thomas Voelker, founder of Orilo, Greater Pittsburgh. He leads a founder-led, agent-backed website studio.",
   portrait: {
     src: "/images/profile/thomas.jpg",
     square: "/images/profile/thomas-square.jpg",

@@ -15,7 +15,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <Wordmark />
-            <p className="mt-3 text-sm text-muted">Founder of Orilo</p>
+            <p className="mt-3 max-w-xs text-sm text-muted">Thomas Voelker, founder of Orilo, Greater Pittsburgh.</p>
           </div>
           <nav className="flex flex-col gap-3 text-sm text-muted">
             {links.map((link) => (
