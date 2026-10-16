@@ -130,7 +130,7 @@ export function HobbyReel() {
               {item.type === "video" ? (
                 <LoopVideo src={item.src} poster={item.poster} label={i < hobbies.length ? item.alt : undefined} />
               ) : (
-                <img src={item.src} alt={i < hobbies.length ? item.alt : ""} />
+                <img src={item.src} alt={i < hobbies.length ? item.alt : ""} loading="lazy" decoding="async" />
               )}
               <figcaption className="hobby-label">{item.label}</figcaption>
             </figure>

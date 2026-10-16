@@ -10,7 +10,7 @@ export function Groundhogs() {
       {hogs.map((hog, i) => (
         <div key={hog.id} className="groundhog-slot">
           <div className="groundhog" style={{ animationDelay: `${i * 3}s` }}>
-            <img src={hog.src} alt="" />
+            <img src={hog.src} alt="" loading="lazy" decoding="async" />
             <span>{hog.name}</span>
           </div>
         </div>
