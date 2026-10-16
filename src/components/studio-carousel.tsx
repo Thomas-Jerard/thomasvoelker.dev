@@ -83,7 +83,7 @@ export function StudioCarousel({ items = featuredClients, variant = "home" }: Pr
           const isFront = pos === "front";
           const shot = (
             <div className={item.fit === "contain" ? "project-shot shot-wide shot-contain" : "project-shot shot-wide"}>
-              <img src={item.image} alt={`${item.name} website`} />
+              <img src={item.image} alt={`${item.name} website`} loading="lazy" decoding="async" />
             </div>
           );
           return (

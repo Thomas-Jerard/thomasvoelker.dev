@@ -73,7 +73,7 @@ export function OriloBuildPreview() {
           </div>
         </div>
         <div className="build-site">
-          <img src="/images/projects/orilo-live.jpg" alt="orilo.io landing page" />
+          <img src="/images/projects/orilo-live.jpg" alt="orilo.io landing page" loading="lazy" decoding="async" />
         </div>
       </div>
     </div>
