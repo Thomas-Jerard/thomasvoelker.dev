@@ -1,6 +1,7 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
+import { WorkNav } from "@/components/work-nav";
 import { Button } from "@/components/ui/button";
 import { OriloBuildPreview } from "@/components/orilo-build-preview";
 import { connectiveApp, featuredClients, featuredVenture, oriloServices, site } from "@/data/site";
@@ -78,6 +79,7 @@ function OriloPage() {
           </a>
         </Button>
       </div>
+      <WorkNav current="orilo" />
     </main>
   );
 }
@@ -112,6 +114,7 @@ function AppPage() {
           </li>
         ))}
       </ul>
+      <WorkNav current="connective-fitness" />
     </main>
   );
 }
@@ -139,7 +142,7 @@ function ClientPage({ client }: { client: (typeof featuredClients)[number] }) {
       <h1 className="display mt-3 text-4xl text-fg md:text-6xl">{client.name}</h1>
       <p className="mt-4 max-w-2xl text-lg text-muted">{client.blurb}</p>
       <div className="project-shot shot-hero mt-10">
-        <img src={client.image} alt={`${client.name} website`} />
+        <img src={client.image} alt={`${client.name} website`} fetchPriority="high" />
       </div>
       <div className="mt-8">
         <Button asChild>
@@ -149,6 +152,7 @@ function ClientPage({ client }: { client: (typeof featuredClients)[number] }) {
           </a>
         </Button>
       </div>
+      <WorkNav current={client.slug} />
     </main>
   );
 }

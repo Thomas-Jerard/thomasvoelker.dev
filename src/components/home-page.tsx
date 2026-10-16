@@ -11,6 +11,7 @@ import { OriloVerb } from "@/components/orilo-verb";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { StudioCarousel } from "@/components/studio-carousel";
+import { WorkNav } from "@/components/work-nav";
 import { Button } from "@/components/ui/button";
 import {
   education,
@@ -83,6 +84,7 @@ function Hero() {
           <img
             src={site.portrait.src}
             alt={site.portrait.alt}
+            fetchPriority="high"
             width={1100}
             height={1180}
             className="shot-portrait w-full object-cover"
@@ -165,6 +167,7 @@ function ClientWork() {
         </p>
         <div className="mt-10">
           <StudioCarousel />
+          <WorkNav label="All work" />
         </div>
       </div>
     </section>

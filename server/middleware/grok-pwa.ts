@@ -36,7 +36,43 @@ function requestHost(event: GrokPwaEvent): string {
   );
 }
 
+const NOT_FOUND_TITLE = "Page not found — Thomas Voelker";
+
+/** 404 documents: never index, and don't reuse the homepage title/description. */
+function markNotFound(chunk: Uint8Array): Uint8Array {
+  const html = new TextDecoder().decode(chunk);
+  if (!/<\/head>/i.test(html)) return chunk;
+  const out = html
+    .replace(/<title\b[^>]*>[^<]*<\/title>/i, `<title>${NOT_FOUND_TITLE}</title>`)
+    .replace(/(<meta\b[^>]*\b(?:property|name)\s*=\s*["'](?:og|twitter):title["'][^>]*\bcontent\s*=\s*["'])[^"']*/gi, `$1${NOT_FOUND_TITLE}`)
+    .replace(/<meta\b[^>]*\bname\s*=\s*["']robots["'][^>]*>/gi, "")
+    .replace(/<meta\b[^>]*\bname\s*=\s*["']description["'][^>]*>/gi, "")
+    .replace(/<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*>/gi, "")
+    .replace(/<\/head>/i, `<meta name="robots" content="noindex, follow"></head>`);
+  return new TextEncoder().encode(out);
+}
+
+/**
+ * The platform injector rewrites share metas site-wide (title/description come
+ * from the page). Restore og:url (from the page canonical) and og:type, which
+ * it strips but never re-adds.
+ */
+function addShareUrl(chunk: Uint8Array): Uint8Array {
+  const html = new TextDecoder().decode(chunk);
+  if (!/<\/head>/i.test(html)) return chunk;
+  const canonical = html.match(/<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*\bhref\s*=\s*["']([^"']+)["']/i);
+  const tags: string[] = [];
+  if (!/property\s*=\s*["']og:type["']/i.test(html)) tags.push(`<meta property="og:type" content="website">`);
+  if (canonical && !/property\s*=\s*["']og:url["']/i.test(html)) {
+    tags.push(`<meta property="og:url" content="${canonical[1]}">`);
+  }
+  if (tags.length === 0) return chunk;
+  return new TextEncoder().encode(html.replace(/<\/head>/i, `${tags.join("")}</head>`));
+}
+
 function injectHeadStreaming(response: Response, host: string): Response {
+  const notFound = response.status === 404;
+  let headDone = false;
   const injector = createHeadInjector({
     host,
     site: grokOgIdentity.site,
@@ -44,10 +80,26 @@ function injectHeadStreaming(response: Response, host: string): Response {
   const transformed = response.body!.pipeThrough(
     new TransformStream<Uint8Array, Uint8Array>({
       transform(chunk, controller) {
-        for (const out of injector.push(chunk)) controller.enqueue(out);
+        for (const out of injector.push(chunk)) {
+          if (notFound && !headDone) {
+            headDone = true;
+            controller.enqueue(markNotFound(addShareUrl(out)));
+          } else if (!headDone) {
+            headDone = true;
+            controller.enqueue(addShareUrl(out));
+          } else controller.enqueue(out);
+        }
       },
       flush(controller) {
-        for (const out of injector.flush()) controller.enqueue(out);
+        for (const out of injector.flush()) {
+          if (notFound && !headDone) {
+            headDone = true;
+            controller.enqueue(markNotFound(addShareUrl(out)));
+          } else if (!headDone) {
+            headDone = true;
+            controller.enqueue(addShareUrl(out));
+          } else controller.enqueue(out);
+        }
       },
     }),
   );

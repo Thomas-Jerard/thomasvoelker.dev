@@ -17,6 +17,8 @@ function BeltSet({ copy }: { copy: number }) {
               src={place.logo}
               alt={copy === 0 ? place.name : ""}
               className="logo-mark"
+              loading="lazy"
+              decoding="async"
             />
           </a>
         </li>
