@@ -20,6 +20,7 @@ export const site = {
     "Thomas Voelker, founder of Orilo, Greater Pittsburgh. He leads a founder-led, agent-backed website studio.",
   portrait: {
     src: "/images/profile/thomas.jpg",
+    webp: "/images/profile/thomas.webp",
     square: "/images/profile/thomas-square.jpg",
     alt: "Thomas Jerard Voelker smiling outdoors in natural light",
   },
@@ -40,9 +41,9 @@ export const site = {
 
 export const workplaces = [
   { id: "orilo", name: "Orilo", href: "https://orilo.io/", logo: "/images/brand/orilo.svg" },
-  { id: "mercor", name: "Mercor", href: "https://www.mercor.com/", logo: "/images/logos/mercor.png" },
+  { id: "mercor", name: "Mercor", href: "https://www.mercor.com/", logo: "/images/logos/mercor.webp" },
   { id: "upmc", name: "UPMC", href: "https://www.upmc.com/", logo: "/images/logos/upmc.png" },
-  { id: "adpia", name: "ADPIA", href: "https://insurance.adp.com/", logo: "/images/logos/adp.png" },
+  { id: "adpia", name: "ADPIA", href: "https://insurance.adp.com/", logo: "/images/logos/adp.webp" },
   { id: "capstone", name: "Capstone Logistics", href: "https://www.capstonelogistics.com/", logo: "/images/logos/capstone.svg" },
 ] as const;
 
@@ -61,7 +62,7 @@ export const featuredVenture = {
   summary:
     "My company. A managed website studio that designs, launches, hosts, and maintains sites for local businesses and creators—plus the SEO to help people find them.",
   href: "https://orilo.io/",
-  image: "/images/projects/orilo-live.jpg",
+  image: "/images/projects/orilo-live.webp",
   live: true,
 };
 
@@ -70,21 +71,21 @@ export const featuredClients = [
     slug: "reinforce-gym",
     name: "Reinforce Gym",
     url: "https://www.reinforcegym.com/",
-    image: "/images/projects/reinforce.jpg",
+    image: "/images/projects/reinforce.webp",
     blurb: "A 24/7 gym site displaying amenities and features.",
   },
   {
     slug: "prime-stretch",
     name: "Prime Stretch",
     url: "https://primestretchpa.com/",
-    image: "/images/projects/prime-stretch.jpg",
+    image: "/images/projects/prime-stretch.webp",
     blurb: "A site displaying a rehabilitation and physical support studio.",
   },
   {
     slug: "pevarnik",
     name: "Pevarnik Bros.",
     url: "https://pevarnik.com/",
-    image: "/images/projects/pevarnik.jpg",
+    image: "/images/projects/pevarnik.webp",
     blurb: "A contractor site resembling professional commercial work.",
   },
 ] as const;
@@ -186,12 +187,12 @@ export const companies = [
 ] as const;
 
 export const hobbies = [
-  { id: "stage", type: "image", src: "/images/hobbies/stage.jpg", alt: "On stage at a bodybuilding show", label: "Bodybuilding" },
-  { id: "gym", type: "image", src: "/images/hobbies/gym.jpg", alt: "Training in the gym", label: "Training" },
-  { id: "range", type: "video", src: "/videos/hobby-range.mp4", poster: "/videos/hobby-range.jpg", alt: "On the range", label: "Ranging" },
-  { id: "goats", type: "image", src: "/images/hobbies/goats.jpg?v=2", alt: "Mountain goats on a ridge", label: "Hiking" },
-  { id: "ridge", type: "image", src: "/images/hobbies/ridge.jpg?v=2", alt: "A high alpine view", label: "Site seeing" },
-  { id: "family", type: "image", src: "/images/hobbies/family.jpg", alt: "With family", label: "Family" },
+  { id: "stage", type: "image", src: "/images/hobbies/stage.jpg", alt: "Bodybuilder posing on stage at a competition, sponsor banners behind", label: "Bodybuilding" },
+  { id: "gym", type: "image", src: "/images/hobbies/gym.jpg", alt: "Gym mirror selfie mid-training, racks of weights and machines behind", label: "Training" },
+  { id: "range", type: "video", src: "/videos/hobby-range.mp4", poster: "/videos/hobby-range.jpg", alt: "Shooting at an indoor range with ear protection, paper targets downrange", label: "Ranging" },
+  { id: "goats", type: "image", src: "/images/hobbies/goats.jpg?v=2", alt: "Mountain goats on a rocky ridge above a forested valley on a hike", label: "Hiking" },
+  { id: "ridge", type: "image", src: "/images/hobbies/ridge.jpg?v=2", alt: "Hiking view from a rocky summit over a forested valley, a lake, and mountains", label: "Site seeing" },
+  { id: "family", type: "image", src: "/images/hobbies/family.jpg", alt: "Family photo of six people in front of a Christmas tree", label: "Family" },
   { id: "flex", type: "video", src: "/videos/hobby-flex.mp4", poster: "/videos/hobby-flex.jpg", alt: "Lifting in the gym", label: "Lifting" },
-  { id: "trophies", type: "image", src: "/images/hobbies/trophies.jpg", alt: "With a competitor and trophies", label: "Friends" },
+  { id: "trophies", type: "image", src: "/images/hobbies/trophies.jpg", alt: "Two friends at a bodybuilding show backdrop with two trophies", label: "Friends" },
 ] as const;

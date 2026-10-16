@@ -82,7 +82,7 @@ function Hero() {
       <div className="hidden md:col-span-5 md:block">
         <div className="portrait-frame portrait-motion">
           <img
-            src={site.portrait.src}
+            src={site.portrait.webp}
             alt={site.portrait.alt}
             fetchPriority="high"
             width={1100}
