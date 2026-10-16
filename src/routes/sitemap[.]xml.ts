@@ -5,14 +5,16 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const lastmod = new Date().toISOString().slice(0, 10);
+        // Stable lastmod: the date of the commit the site was built from
+        // (baked at build time), not the request date.
+        const lastmod = __SITE_LASTMOD__;
         const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${sitemapPaths
   .map((path) => {
     const loc = path === "/" ? `${SITE_ORIGIN}/` : `${SITE_ORIGIN}${path}`;
     const priority = path === "/" ? "1.0" : path === "/work" || path === "/about" ? "0.8" : "0.6";
-    return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>${priority}</priority></url>`;
+    return `  <url><loc>${loc}</loc>${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}<priority>${priority}</priority></url>`;
   })
   .join("\n")}
 </urlset>`;

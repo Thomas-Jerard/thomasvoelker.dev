@@ -53,7 +53,7 @@ export function pageHead({ path, title, description, image = OG_IMAGE }: PageHea
 export const pages = {
   home: {
     path: "/",
-    title: site.title,
+    title: "Thomas Voelker (Thomas Jerard Voelker) — Developer & Founder of Orilo",
     description: site.description,
   },
   about: {
@@ -75,13 +75,14 @@ export const pages = {
   },
   orilo: {
     path: "/work/orilo",
-    title: "Orilo — Thomas Voelker",
+    title: "Orilo — Web Design & SEO Studio | Thomas Voelker",
     description: featuredVenture.summary,
   },
   connective: {
     path: "/work/connective-fitness",
     title: "Connective Fitness APP — Thomas Voelker",
-    description: connectiveApp.summary,
+    description:
+      "Holistic software between a gym and its members: scan-in access, a training dashboard, an AI assistant, training plans, nutrition, and recovery.",
   },
 } as const;
 
@@ -110,6 +111,7 @@ export function personJsonLd() {
     "@type": "Person",
     "@id": `${SITE_ORIGIN}/#person`,
     name: site.fullName,
+    alternateName: "Thomas Voelker",
     givenName: "Thomas",
     additionalName: "Jerard",
     familyName: "Voelker",
@@ -134,8 +136,7 @@ export function personJsonLd() {
       name: education.school,
       url: "https://www.ohio.edu/",
     },
-    worksFor: { "@id": `${SITE_ORIGIN}/#orilo` },
-    founder: [
+    worksFor: [
       { "@id": `${SITE_ORIGIN}/#orilo` },
       {
         "@type": "Organization",
@@ -151,7 +152,7 @@ export function personJsonLd() {
       "Agentic frameworks",
       "Fitness technology",
     ],
-    sameAs: site.socials.map((s) => s.href),
+    sameAs: [...site.socials.map((s) => s.href), site.orilo.url],
   };
 }
 
@@ -170,6 +171,7 @@ export function organizationJsonLd() {
       url: "https://7homais.co/",
     },
     areaServed: "United States",
+    sameAs: ["https://www.linkedin.com/company/oriloio"],
     knowsAbout: ["Web design", "Website hosting", "SEO", "Website maintenance"],
   };
 }

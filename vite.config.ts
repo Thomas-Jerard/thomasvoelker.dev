@@ -1,5 +1,6 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
+import { execSync } from "node:child_process";
 import type { Plugin } from "vite";
 import { defineConfig } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -145,7 +146,19 @@ function authPopupPlugin(): Plugin {
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
+// Sitemap lastmod = date of the commit being built (stable across requests).
+function siteLastmod(): string {
+  try {
+    return execSync("git log -1 --format=%cs", { stdio: ["ignore", "pipe", "ignore"] })
+      .toString()
+      .trim();
+  } catch {
+    return "";
+  }
+}
+
 export default defineConfig(({ command, isPreview }) => ({
+  define: { __SITE_LASTMOD__: JSON.stringify(siteLastmod()) },
   server: {
     host: "0.0.0.0",
     port: 8080,
