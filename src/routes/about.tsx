@@ -31,6 +31,7 @@ function AboutPage() {
         <div className="about-copy">
           <p className="kicker">About</p>
           <TypeTitle text={about.title} />
+          <p className="mt-3 text-sm text-muted">{about.identity}</p>
           <details className="about-expand">
             <summary>
               <span className="about-lead">{about.lead}</span>
