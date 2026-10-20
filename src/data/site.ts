@@ -139,6 +139,7 @@ export const education = {
 
 export const about = {
   title: "Who is Thomas Voelker?",
+  identity: "Thomas Jerard Voelker · Developer and founder of Orilo · Greater Pittsburgh",
   lead: "Developer, product builder, entrepreneur, and AI analyst. Currently building useful digital experiences and leading 7homais Limited, the company behind Orilo.",
   studio:
     "When I founded Orilo, my goal was simple. Create a web design agency to help small businesses and creators build a reputable online presence without need for a large upfront deposit. The studio is founder-led and agent-backed, focusing on: design, upkeep, hosting, and SEO for our clients that need website help.",

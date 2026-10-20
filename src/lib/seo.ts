@@ -58,9 +58,9 @@ export const pages = {
   },
   about: {
     path: "/about",
-    title: "Who is Thomas Voelker?",
+    title: "Who is Thomas Voelker? Pittsburgh Developer & Founder of Orilo",
     description:
-      "Thomas Voelker, founder of Orilo, Greater Pittsburgh. Developer, product builder, entrepreneur, and AI analyst. He leads 7homais Limited.",
+      "Thomas Voelker (Thomas Jerard Voelker) is a developer and the founder of Orilo in Greater Pittsburgh: product builder, entrepreneur, and AI analyst.",
   },
   work: {
     path: "/work",
