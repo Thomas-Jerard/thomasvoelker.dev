@@ -1,5 +1,6 @@
 import {
   connectiveApp,
+  cozzoVenture,
   education,
   featuredClients,
   featuredVenture,
@@ -60,13 +61,13 @@ export const pages = {
     path: "/about",
     title: "Who is Thomas Voelker? Pittsburgh Developer & Founder of Orilo",
     description:
-      "Thomas Voelker (Thomas Jerard Voelker) is a developer and the founder of Orilo in Greater Pittsburgh: product builder, entrepreneur, and AI analyst.",
+      "Thomas Voelker (Thomas Jerard Voelker) is a developer and the founder of Orilo and Cozzo Labs LLC in Greater Pittsburgh: product builder, entrepreneur, and AI analyst.",
   },
   work: {
     path: "/work",
     title: "Work — Thomas Voelker",
     description:
-      "Orilo, the studio’s client sites, and connective software for gyms — selected work by Thomas Voelker.",
+      "Orilo, Cozzo, the studio’s client sites, and connective software for gyms — selected work by Thomas Voelker.",
   },
   contact: {
     path: "/contact",
@@ -77,6 +78,12 @@ export const pages = {
     path: "/work/orilo",
     title: "Orilo — Web Design & SEO Studio | Thomas Voelker",
     description: featuredVenture.summary,
+  },
+  cozzo: {
+    path: "/work/cozzo",
+    title: "Cozzo — Voice AI Agent Benchmarks | Thomas Voelker, Founder of Cozzo Labs",
+    description:
+      "Cozzo (cozzo.io) is an independent benchmark and comparison site for AI voice agents and AI receptionists, founded by Thomas Voelker of Cozzo Labs LLC.",
   },
   connective: {
     path: "/work/connective-fitness",
@@ -100,6 +107,7 @@ export const sitemapPaths = [
   "/",
   "/about",
   "/work/orilo",
+  "/work/cozzo",
   "/work/connective-fitness",
   ...featuredClients.map((c) => `/work/${c.slug}`),
   "/contact",
@@ -138,6 +146,7 @@ export function personJsonLd() {
     },
     worksFor: [
       { "@id": `${SITE_ORIGIN}/#orilo` },
+      { "@id": `${SITE_ORIGIN}/#cozzo-labs` },
       {
         "@type": "Organization",
         name: "7homais Limited",
@@ -176,6 +185,21 @@ export function organizationJsonLd() {
   };
 }
 
+export function cozzoOrganizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${SITE_ORIGIN}/#cozzo-labs`,
+    name: site.cozzo.company,
+    alternateName: site.cozzo.name,
+    url: site.cozzo.url,
+    description: "Cozzo Labs LLC runs Cozzo, an independent benchmark and comparison site for AI voice agents.",
+    founder: { "@id": `${SITE_ORIGIN}/#person` },
+    sameAs: [site.cozzo.x],
+    knowsAbout: ["Voice AI", "AI voice agents", "AI receptionists", "Text-to-speech", "Speech-to-text"],
+  };
+}
+
 export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
@@ -211,6 +235,7 @@ export function webPageJsonLd(
 export function workListJsonLd() {
   const entries = [
     { name: featuredVenture.name, path: "/work/orilo" },
+    { name: cozzoVenture.name, path: "/work/cozzo" },
     { name: connectiveApp.name, path: "/work/connective-fitness" },
     ...featuredClients.map((c) => ({ name: c.name, path: `/work/${c.slug}` })),
   ];

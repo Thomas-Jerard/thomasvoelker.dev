@@ -20,7 +20,7 @@ import {
   practice,
   site,
 } from "@/data/site";
-import { personJsonLd, websiteJsonLd, organizationJsonLd } from "@/lib/seo";
+import { cozzoOrganizationJsonLd, personJsonLd, websiteJsonLd, organizationJsonLd } from "@/lib/seo";
 
 export function HomePage() {
   return (
@@ -28,6 +28,7 @@ export function HomePage() {
       <JsonLd data={personJsonLd()} />
       <JsonLd data={websiteJsonLd()} />
       <JsonLd data={organizationJsonLd()} />
+      <JsonLd data={cozzoOrganizationJsonLd()} />
       <Hero />
       <OriloChapter />
       <ClientWork />
