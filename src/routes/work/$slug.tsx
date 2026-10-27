@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/json-ld";
 import { WorkNav } from "@/components/work-nav";
 import { Button } from "@/components/ui/button";
 import { OriloBuildPreview } from "@/components/orilo-build-preview";
-import { connectiveApp, featuredClients, featuredVenture, oriloServices, site } from "@/data/site";
+import { connectiveApp, cozzoVenture, featuredClients, featuredVenture, oriloServices, site } from "@/data/site";
 import {
   breadcrumbJsonLd,
   clientPage,
@@ -19,6 +19,7 @@ export const Route = createFileRoute("/work/$slug")({
   component: WorkSlug,
   loader: ({ params }) => {
     if (params.slug === "orilo") return { kind: "orilo" as const };
+    if (params.slug === "cozzo") return { kind: "cozzo" as const };
     if (params.slug === "connective-fitness") return { kind: "app" as const };
     const client = featuredClients.find((c) => c.slug === params.slug);
     if (!client) throw notFound();
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/work/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     if (loaderData.kind === "orilo") return pageHead(pages.orilo);
+    if (loaderData.kind === "cozzo") return pageHead(pages.cozzo);
     if (loaderData.kind === "app") return pageHead(pages.connective);
     return pageHead(clientPage(loaderData.client.slug)!);
   },
@@ -35,6 +37,7 @@ export const Route = createFileRoute("/work/$slug")({
 function WorkSlug() {
   const data = Route.useLoaderData();
   if (data.kind === "orilo") return <OriloPage />;
+  if (data.kind === "cozzo") return <CozzoPage />;
   if (data.kind === "app") return <AppPage />;
   return <ClientPage client={data.client} />;
 }
@@ -80,6 +83,57 @@ function OriloPage() {
         </Button>
       </div>
       <WorkNav current="orilo" />
+    </main>
+  );
+}
+
+function CozzoPage() {
+  return (
+    <main id="main" className="page-wrap py-16 md:py-24">
+      <JsonLd data={webPageJsonLd(pages.cozzo.path, pages.cozzo.title, pages.cozzo.description)} />
+      <JsonLd
+        data={{
+          ...projectJsonLd({
+            name: cozzoVenture.name,
+            description: cozzoVenture.summary,
+            url: site.cozzo.url,
+          }),
+          provider: { "@id": `${SITE_ORIGIN}/#cozzo-labs` },
+        }}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Cozzo", path: "/work/cozzo" },
+        ])}
+      />
+      <p className="kicker">{cozzoVenture.kicker}</p>
+      <h1 className="display mt-3 text-4xl text-fg md:text-6xl">{cozzoVenture.name}</h1>
+      <p className="mt-2 text-sm text-muted">Founded by Thomas Voelker · {site.cozzo.company}</p>
+      <p className="mt-4 max-w-2xl text-lg text-muted">{cozzoVenture.summary}</p>
+      <ul className="mt-10 grid gap-5 sm:grid-cols-2">
+        {cozzoVenture.features.map((item) => (
+          <li key={item.title}>
+            <p className="text-sm font-medium text-fg">{item.title}</p>
+            <p className="mt-1 text-sm text-muted">{item.body}</p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <Button asChild>
+          <a href={site.cozzo.url} target="_blank" rel="noreferrer">
+            Visit cozzo.io
+            <ArrowUpRight />
+          </a>
+        </Button>
+        <Button asChild variant="outline">
+          <a href={site.cozzo.x} target="_blank" rel="noreferrer">
+            Cozzo on X
+            <ArrowUpRight />
+          </a>
+        </Button>
+      </div>
+      <WorkNav current="cozzo" />
     </main>
   );
 }

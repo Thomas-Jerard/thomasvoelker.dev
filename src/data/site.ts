@@ -15,9 +15,9 @@ export const site = {
   availability: "Available for select projects",
   headline: "I build cool stuff with AI",
   tagline:
-    "I run Orilo and I’m building connective software for gyms and the people who train in them.",
+    "I run Orilo, I founded Cozzo Labs, and I’m building connective software for gyms and the people who train in them.",
   description:
-    "Thomas Voelker, founder of Orilo, Greater Pittsburgh. He leads a founder-led, agent-backed website studio.",
+    "Thomas Voelker, founder of Orilo and Cozzo Labs LLC, Greater Pittsburgh. He leads a founder-led, agent-backed website studio and Cozzo, an independent voice-AI agent benchmark.",
   portrait: {
     src: "/images/profile/thomas.jpg",
     webp: "/images/profile/thomas.webp",
@@ -37,6 +37,28 @@ export const site = {
     pitch:
       "Founder-led and agent-backed. Design, upkeep, hosting, and SEO for businesses that need a real website—not another handoff. Client sites below are their businesses, shipped through the studio.",
   },
+  cozzo: {
+    name: "Cozzo",
+    url: "https://cozzo.io/",
+    company: "Cozzo Labs LLC",
+    x: "https://x.com/cozzoio",
+  },
+} as const;
+
+export const cozzoVenture = {
+  slug: "cozzo",
+  kicker: "Venture · Live",
+  name: "Cozzo",
+  blurb: "Independent voice AI benchmarks and comparisons.",
+  summary:
+    "Cozzo is an independent benchmark and comparison site for AI voice agents, built by Cozzo Labs LLC, the company I founded. It compares AI receptionists, voice agent platforms, text-to-speech, speech-to-text, and telephony, with prices linked to each vendor’s own page and no paid rankings.",
+  href: "https://cozzo.io/",
+  features: [
+    { title: "Finder", body: "A few quick questions about your calls, then the three tools that fit your use case, budget, and languages." },
+    { title: "Cost calculator", body: "The real monthly bill, added up from each vendor’s published prices—LLM, voice, and phone line included." },
+    { title: "Side-by-side comparisons", body: "Two or three platforms or voice models next to each other: price, billing, best fit, and key features." },
+    { title: "Real-call benchmarks", body: "Voice agent platforms timed on real phone calls, plus industry shortlists from dental offices to car dealerships." },
+  ],
 } as const;
 
 export const workplaces = [
@@ -139,10 +161,12 @@ export const education = {
 
 export const about = {
   title: "Who is Thomas Voelker?",
-  identity: "Thomas Jerard Voelker · Developer and founder of Orilo · Greater Pittsburgh",
+  identity: "Thomas Jerard Voelker · Developer, founder of Orilo and Cozzo Labs LLC · Greater Pittsburgh",
   lead: "Developer, product builder, entrepreneur, and AI analyst. Currently building useful digital experiences and leading 7homais Limited, the company behind Orilo.",
   studio:
     "When I founded Orilo, my goal was simple. Create a web design agency to help small businesses and creators build a reputable online presence without need for a large upfront deposit. The studio is founder-led and agent-backed, focusing on: design, upkeep, hosting, and SEO for our clients that need website help.",
+  cozzo:
+    "I also founded Cozzo Labs LLC, the company behind Cozzo (cozzo.io): an independent benchmark and comparison site for AI voice agents and AI receptionists. Cozzo tests voice agent platforms on real phone calls and links every price to the vendor’s own page, so sponsors never change a ranking.",
   path: "While building Orilo, I assist in post-training AI models for frontier labs. Before that, I worked in healthcare on a cardiac PCU at UPMC. Moreover, I have spent time in operations at ADP and Capstone Logistics.",
   product:
     "Independently, I am working on building connective software for gyms and their members. This software's capabilities are designed to help bridge the gap between large commercial gyms and smaller locally owned locations.",
@@ -184,6 +208,13 @@ export const companies = [
     role: "Owner · Founder · CEO",
     body: "A managed web studio creating and caring for high-quality websites for businesses and creators.",
     href: "https://orilo.io/",
+  },
+  {
+    name: "Cozzo Labs LLC",
+    status: "Operating",
+    role: "Founder",
+    body: "The company behind Cozzo, an independent voice AI agent benchmark and comparison site.",
+    href: "https://cozzo.io/",
   },
 ] as const;
 

@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { connectiveApp, featuredClients, featuredVenture } from "@/data/site";
+import { connectiveApp, cozzoVenture, featuredClients, featuredVenture } from "@/data/site";
 
 const workLinks = [
   { slug: featuredVenture.slug, name: featuredVenture.name },
+  { slug: cozzoVenture.slug, name: cozzoVenture.name },
   { slug: "connective-fitness", name: connectiveApp.name },
   ...featuredClients.map((c) => ({ slug: c.slug, name: c.name })),
 ];
