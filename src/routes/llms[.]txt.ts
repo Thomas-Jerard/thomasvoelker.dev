@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 const body = `# Thomas Voelker
 
-> Thomas Voelker, founder of Orilo, Greater Pittsburgh.
+> Thomas Voelker, founder of Orilo and Cozzo Labs LLC, Greater Pittsburgh.
 
 - [Home](https://thomasvoelker.dev/): Thomas Voelker — founder-led, agent-backed studio work and independent product.
 - [About](https://thomasvoelker.dev/about): Background, companies, education, and hobbies.
@@ -14,6 +14,12 @@ Founder-led, agent-backed website studio (design, upkeep, hosting, SEO) under 7h
 Live: https://orilo.io/
 
 Client work (not this site): Reinforce Gym, Prime Stretch, Pevarnik Bros.
+
+## Cozzo
+
+Independent voice AI agent benchmark and comparison site, run by Cozzo Labs LLC (founded by Thomas Voelker).
+Live: https://cozzo.io/ · X: https://x.com/cozzoio
+Project page: https://thomasvoelker.dev/work/cozzo
 
 ## Also
 

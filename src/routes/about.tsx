@@ -39,6 +39,7 @@ function AboutPage() {
             </summary>
             <div className="about-extra">
               <p>{about.studio}</p>
+              <p>{about.cozzo}</p>
               <p>{about.path}</p>
               <p>{about.product}</p>
               <p>{about.future}</p>
