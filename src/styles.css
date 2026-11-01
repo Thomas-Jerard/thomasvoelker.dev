@@ -245,11 +245,23 @@ html.light .work-slide-icon img {
 }
 
 .project-shot {
+  position: relative;
   background: var(--color-surface-soft);
   overflow: hidden;
 }
 .shot-wide { aspect-ratio: 16 / 10; }
 .shot-hero { aspect-ratio: 16 / 9; }
+.cozzo-live iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  border: 0;
+  transform: scale(0.5);
+  transform-origin: top left;
+  pointer-events: none;
+}
 .shot-portrait { aspect-ratio: 4 / 5; }
 
 .about-hero {

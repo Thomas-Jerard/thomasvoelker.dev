@@ -8,7 +8,7 @@ export function ConnectiveAppModule() {
     <section id="connective" className="border-t border-border py-16 md:py-24">
       <div className="page-wrap">
         <SectionHeading
-          index="03"
+          index="04"
           label="SAAS Development"
           title="Connective software for gyms and members."
         />

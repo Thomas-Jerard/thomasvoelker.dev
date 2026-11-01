@@ -52,6 +52,10 @@ export const cozzoVenture = {
   blurb: "Independent voice AI benchmarks and comparisons.",
   summary:
     "Cozzo is an independent benchmark and comparison site for AI voice agents, built by Cozzo Labs LLC, the company I founded. It compares AI receptionists, voice agent platforms, text-to-speech, speech-to-text, and telephony, with prices linked to each vendor’s own page and no paid rankings.",
+  why: "Voice AI moves fast, and the price is split across per-minute rates, phone lines, and add-ons. Businesses were being sold demos instead of data. I wanted one place that shows what each option really costs and how it performs.",
+  goal: "The aim is to be the resource a business uses before it picks a voice model or a voice agent platform.",
+  built:
+    "Next.js on Vercel. I coordinate the agents that research, benchmark, review, and publish. Every price and result is checked before it goes up. Cozzo the Canary is the guide on the site.",
   href: "https://cozzo.io/",
   features: [
     { title: "Finder", body: "A few quick questions about your calls, then the three tools that fit your use case, budget, and languages." },

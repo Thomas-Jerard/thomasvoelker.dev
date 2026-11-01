@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
 import { WorkNav } from "@/components/work-nav";
 import { Button } from "@/components/ui/button";
+import { CozzoLive } from "@/components/cozzo-live";
 import { OriloBuildPreview } from "@/components/orilo-build-preview";
 import { connectiveApp, cozzoVenture, featuredClients, featuredVenture, oriloServices, site } from "@/data/site";
 import {
@@ -110,7 +111,11 @@ function CozzoPage() {
       <p className="kicker">{cozzoVenture.kicker}</p>
       <h1 className="display mt-3 text-4xl text-fg md:text-6xl">{cozzoVenture.name}</h1>
       <p className="mt-2 text-sm text-muted">Founded by Thomas Voelker · {site.cozzo.company}</p>
-      <p className="mt-4 max-w-2xl text-lg text-muted">{cozzoVenture.summary}</p>
+      <p className="mt-4 max-w-2xl text-lg text-muted">{cozzoVenture.why}</p>
+      <p className="mt-3 max-w-2xl text-muted">{cozzoVenture.goal}</p>
+      <div className="mt-10">
+        <CozzoLive />
+      </div>
       <ul className="mt-10 grid gap-5 sm:grid-cols-2">
         {cozzoVenture.features.map((item) => (
           <li key={item.title}>
@@ -119,6 +124,7 @@ function CozzoPage() {
           </li>
         ))}
       </ul>
+      <p className="mt-8 max-w-2xl text-sm text-muted">{cozzoVenture.built}</p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Button asChild>
           <a href={site.cozzo.url} target="_blank" rel="noreferrer">
