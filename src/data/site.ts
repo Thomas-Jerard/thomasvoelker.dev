@@ -58,13 +58,13 @@ export const cozzoVenture = {
     "Next.js on Vercel. I coordinate the agents that research, benchmark, review, and publish. Every price and result is checked before it goes up. Cozzo the Canary is the guide on the site.",
   href: "https://cozzo.io/",
   features: [
-    { title: "Finder", body: "A few quick questions about your calls, then the three tools that fit your use case, budget, and languages." },
-    { title: "Cost calculator", body: "The real monthly bill, added up from each vendor’s published prices—LLM, voice, and phone line included." },
-    { title: "Side-by-side comparisons", body: "Two or three platforms or voice models next to each other: price, billing, best fit, and key features." },
-    { title: "Real-call benchmarks", body: "Voice agent platforms timed on real phone calls, plus industry shortlists from dental offices to car dealerships." },
-    { title: "Auditing", body: "A review of the voice setup a business already runs. Cost, missed calls, and whether another tool would do the job." },
-    { title: "Affiliate program", body: "A program for people who send a business to the tool that fits. The recommendation is disclosed, and it pays when it becomes a customer." },
-    { title: "Brokerage", body: "Later. An independent third party between the business and the voice vendor, so the buy is not left to a sales call." },
+    { title: "Finder", body: "Five questions. The three tools that fit." },
+    { title: "Cost calculator", body: "The real monthly bill, not a per-minute rate." },
+    { title: "Side-by-side comparisons", body: "Price, billing, and fit, next to each other." },
+    { title: "Real-call benchmarks", body: "Timed on real phone calls." },
+    { title: "Auditing", body: "A review of the voice setup you already run." },
+    { title: "Affiliate program", body: "Disclosed referrals that pay when they convert." },
+    { title: "Brokerage", body: "Later. An independent third party for the buy." },
   ],
 } as const;
 
