@@ -112,7 +112,6 @@ function CozzoPage() {
       <h1 className="display mt-3 text-4xl text-fg md:text-6xl">{cozzoVenture.name}</h1>
       <p className="mt-2 text-sm text-muted">Founded by Thomas Voelker · {site.cozzo.company}</p>
       <p className="mt-4 max-w-2xl text-lg text-muted">{cozzoVenture.why}</p>
-      <p className="mt-3 max-w-2xl text-muted">{cozzoVenture.goal}</p>
       <div className="mt-10">
         <CozzoLive />
       </div>

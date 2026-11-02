@@ -62,6 +62,9 @@ export const cozzoVenture = {
     { title: "Cost calculator", body: "The real monthly bill, added up from each vendor’s published prices—LLM, voice, and phone line included." },
     { title: "Side-by-side comparisons", body: "Two or three platforms or voice models next to each other: price, billing, best fit, and key features." },
     { title: "Real-call benchmarks", body: "Voice agent platforms timed on real phone calls, plus industry shortlists from dental offices to car dealerships." },
+    { title: "Auditing", body: "A review of the voice setup a business already runs. Cost, missed calls, and whether another tool would do the job." },
+    { title: "Affiliate program", body: "A program for people who send a business to the tool that fits. The recommendation is disclosed, and it pays when it becomes a customer." },
+    { title: "Brokerage", body: "Later. An independent third party between the business and the voice vendor, so the buy is not left to a sales call." },
   ],
 } as const;
 

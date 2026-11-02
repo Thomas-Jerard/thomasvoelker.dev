@@ -118,7 +118,6 @@ function CozzoChapter() {
         <div className="mt-8">
           <CozzoLive />
         </div>
-        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{cozzoVenture.goal}</p>
         <CozzoStack />
         <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted">{cozzoVenture.built}</p>
         <div className="mt-8">
