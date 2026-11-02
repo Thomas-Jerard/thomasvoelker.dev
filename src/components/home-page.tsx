@@ -1,6 +1,7 @@
 import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
 import { ConnectiveAppModule } from "@/components/connective-app";
 import { CozzoLive } from "@/components/cozzo-live";
+import { CozzoStack } from "@/components/cozzo-stack";
 import { ContactActions } from "@/components/contact-actions";
 import { CopyEmail } from "@/components/copy-email";
 import { Groundhogs } from "@/components/groundhogs";
@@ -105,33 +106,20 @@ function CozzoChapter() {
     <section id="cozzo" className="border-t border-border py-16 md:py-24">
       <div className="page-wrap">
         <SectionHeading index="01" label="Venture" title="Cozzo is how I compare voice AI." />
-        <Reveal rank={1} className="mt-10 grid items-center gap-8 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <p className="kicker">Product · Live</p>
-            <h3 className="display mt-3 text-3xl text-fg md:text-5xl">{cozzoVenture.name}</h3>
-            <p className="mt-4 text-lg text-fg">{cozzoVenture.blurb}</p>
-            <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">{cozzoVenture.why}</p>
-            <a
-              href="/work/cozzo"
-              className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-fg hover:text-muted"
-            >
-              View Cozzo
-              <ArrowUpRight className="size-4" />
-            </a>
-          </div>
-          <div className="md:col-span-7">
-            <CozzoLive />
-          </div>
-        </Reveal>
+        <p className="mt-6 max-w-2xl text-lg text-fg">{cozzoVenture.blurb}</p>
+        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{cozzoVenture.why}</p>
+        <a
+          href="/work/cozzo"
+          className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-fg hover:text-muted"
+        >
+          View Cozzo
+          <ArrowUpRight className="size-4" />
+        </a>
+        <div className="mt-8">
+          <CozzoLive />
+        </div>
         <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted md:text-base">{cozzoVenture.goal}</p>
-        <ul className="mt-8 grid grid-cols-2 gap-5 lg:grid-cols-4">
-          {cozzoVenture.features.map((item) => (
-            <li key={item.title}>
-              <p className="text-sm font-medium text-fg">{item.title}</p>
-              <p className="mt-1 text-sm leading-relaxed text-muted">{item.body}</p>
-            </li>
-          ))}
-        </ul>
+        <CozzoStack />
         <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted">{cozzoVenture.built}</p>
         <div className="mt-8">
           <Button asChild className="w-full sm:w-auto">
