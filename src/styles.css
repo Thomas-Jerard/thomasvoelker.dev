@@ -325,17 +325,18 @@ html.light .work-slide-icon img {
 }
 .cozzo-stack {
   position: relative;
-  height: 16.5rem;
+  height: 12.5rem;
   margin-top: 1.25rem;
   perspective: 1400px;
 }
 .cozzo-card {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50%;
   bottom: 0;
-  height: 11rem;
-  padding: 1.6rem 2rem 1.4rem;
+  width: min(28rem, 92%);
+  height: 7.75rem;
+  translate: -50% 0;
+  padding: 1.15rem 1.4rem 1rem;
   background: #111;
   border: 1px solid var(--color-border);
   text-align: center;
@@ -343,32 +344,36 @@ html.light .work-slide-icon img {
   pointer-events: none;
   opacity: 0;
   z-index: 1;
-  transform: translate3d(0, -4.4rem, -110px) scale(0.88);
+  transform: translate3d(0, -3.2rem, -110px) scale(0.9);
   transition: transform 680ms cubic-bezier(0.2, 0.7, 0.2, 1), opacity 680ms ease;
 }
-.cozzo-card h3 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); }
+.cozzo-card h3 { font-size: clamp(1.45rem, 2.4vw, 1.9rem); }
 .cozzo-card p {
-  max-width: 28rem;
-  margin: 0.7rem auto 0;
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
-  line-height: 1.4;
+  max-width: 22rem;
+  margin: 0.4rem auto 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
 }
 .cozzo-card[data-slot="0"] { z-index: 4; pointer-events: auto; opacity: 1; transform: translate3d(0, 0, 48px); }
-.cozzo-card[data-slot="1"] { z-index: 3; opacity: 0.72; transform: translate3d(0, -1.7rem, -30px) scale(0.96); }
-.cozzo-card[data-slot="2"] { z-index: 2; opacity: 0.42; transform: translate3d(0, -3.2rem, -70px) scale(0.92); }
+.cozzo-card[data-slot="1"] { z-index: 3; opacity: 0.72; transform: translate3d(0, -1.15rem, -30px) scale(0.96); }
+.cozzo-card[data-slot="2"] { z-index: 2; opacity: 0.42; transform: translate3d(0, -2.15rem, -70px) scale(0.92); }
 .cozzo-card[data-leaving="true"] { z-index: 5; transform: translate3d(0, -78%, 90px) rotateX(18deg); opacity: 0; }
 @media (max-width: 767px) {
   .cozzo-canary { width: 30%; left: 52%; bottom: 20%; }
-  .cozzo-stack { height: 14.5rem; }
-  .cozzo-card { height: 10rem; padding: 1.25rem 1.1rem; }
+  .cozzo-stack { height: 11.5rem; }
+  .cozzo-card { height: 7.25rem; padding: 0.95rem 1rem 0.8rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cozzo-canary * { animation: none !important; }
   .cozzo-stack { height: auto; perspective: none; }
   .cozzo-card {
     position: relative;
+    left: auto;
     height: auto;
     margin-top: 0.8rem;
+    margin-left: auto;
+    margin-right: auto;
+    translate: none;
     transform: none !important;
     opacity: 1 !important;
   }
