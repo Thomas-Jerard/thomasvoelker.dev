@@ -123,7 +123,6 @@ function CozzoPage() {
           </li>
         ))}
       </ul>
-      <p className="mt-8 max-w-2xl text-sm text-muted">{cozzoVenture.built}</p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Button asChild>
           <a href={site.cozzo.url} target="_blank" rel="noreferrer">

@@ -118,7 +118,6 @@ function CozzoChapter() {
           <CozzoLive />
         </div>
         <CozzoStack />
-        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted">{cozzoVenture.built}</p>
         <div className="mt-8">
           <Button asChild className="w-full sm:w-auto">
             <a href={cozzoVenture.href} target="_blank" rel="noreferrer">
