@@ -66,6 +66,12 @@ function Hero() {
         <p className="reveal reveal-delay-2 mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg text-pretty">
           {site.tagline}
         </p>
+        <a
+          href={`mailto:${site.email}?subject=${encodeURIComponent("Meetup sponsorship")}`}
+          className="reveal reveal-delay-2 mt-3 inline-block text-sm text-muted underline-offset-4 hover:text-fg hover:underline"
+        >
+          Want to sponsor a meetup?
+        </a>
         <div className="reveal reveal-delay-3 mt-7 flex flex-col gap-3 sm:flex-row">
           <CopyEmail className="w-full sm:w-auto" />
           <Button asChild variant="outline" className="w-full sm:w-auto">
