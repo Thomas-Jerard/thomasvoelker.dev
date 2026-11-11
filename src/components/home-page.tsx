@@ -13,7 +13,6 @@ import { OriloVerb } from "@/components/orilo-verb";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { StudioCarousel } from "@/components/studio-carousel";
-import { WorkNav } from "@/components/work-nav";
 import { Button } from "@/components/ui/button";
 import {
   cozzoVenture,
@@ -204,7 +203,6 @@ function ClientWork() {
         </p>
         <div className="mt-10">
           <StudioCarousel />
-          <WorkNav label="All work" />
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ export const site = {
   title: "Thomas Voelker — Founder of Orilo",
   jobTitle: "Founder, developer, and product builder",
   location: "Greater Pittsburgh Region",
-  email: "thomas@orilo.io",
+  email: "Thomas@cozzo.io",
   agent: {
     name: "Sara",
     role: "Personal Assistant",

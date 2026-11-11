@@ -25,22 +25,14 @@ export function CozzoStack() {
     };
   }, [items.length]);
 
+  const item = items[front];
+
   return (
-    <div className="cozzo-stack">
-      {items.map((item, index) => {
-        const slot = (index - front + items.length) % items.length;
-        return (
-          <article
-            key={item.title}
-            className="cozzo-card"
-            data-slot={slot}
-            data-leaving={leaving && slot === 0 ? "true" : "false"}
-          >
-            <h3 className="display text-fg">{item.title}</h3>
-            <p className="text-muted">{item.body}</p>
-          </article>
-        );
-      })}
+    <div className="cozzo-rotator" aria-live="polite">
+      <div className={leaving ? "is-out" : undefined} key={item.title}>
+        <h3 className="display text-fg">{item.title}</h3>
+        <p className="text-muted">{item.body}</p>
+      </div>
     </div>
   );
 }
