@@ -1,4 +1,5 @@
 import { workplaces } from "@/data/site";
+import { useMarquee } from "@/components/use-marquee";
 
 function BeltSet({ copy }: { copy: number }) {
   return (
@@ -17,7 +18,7 @@ function BeltSet({ copy }: { copy: number }) {
               src={place.logo}
               alt={copy === 0 ? place.name : ""}
               className="logo-mark"
-              loading="lazy"
+              draggable={false}
               decoding="async"
             />
           </a>
@@ -28,11 +29,13 @@ function BeltSet({ copy }: { copy: number }) {
 }
 
 export function LogoBelt() {
+  const { viewportRef, trackRef } = useMarquee(36, 2);
+
   return (
     <section aria-label="Where I've Been" className="logo-belt">
       <p className="kicker">Where I've Been</p>
-      <div className="logo-belt-mask">
-        <div className="logo-belt-track">
+      <div ref={viewportRef} className="logo-belt-mask">
+        <div ref={trackRef} className="logo-belt-track">
           <BeltSet copy={0} />
           <BeltSet copy={1} />
         </div>

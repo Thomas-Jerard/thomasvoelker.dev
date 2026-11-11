@@ -611,6 +611,7 @@ html.light .work-slide-icon img {
 .logo-belt-mask {
   overflow: hidden;
   max-width: 100%;
+  touch-action: pan-y;
   -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
 }
@@ -618,7 +619,6 @@ html.light .work-slide-icon img {
   display: flex;
   width: max-content;
   align-items: center;
-  animation: belt-loop 18s linear infinite;
   will-change: transform;
 }
 .logo-belt-set {
@@ -644,13 +644,10 @@ html.light .work-slide-icon img {
   object-fit: contain;
 }
 .logo-belt-link img[src*="orilo"],
+.logo-belt-link img[src*="cozzo"],
 .logo-belt-link img[src*="mercor"],
 .logo-belt-link img[src*="capstone"] {
   height: 34px;
-}
-@keyframes belt-loop {
-  from { transform: translate3d(0, 0, 0); }
-  to { transform: translate3d(-50%, 0, 0); }
 }
 
 .groundhog-row {
@@ -1149,6 +1146,10 @@ html.light .work-slide-icon img {
   .ohio-copy .page-wrap { padding-right: 0; }
   .logo-belt { padding-top: 0.35rem; }
   .logo-belt .kicker { margin-bottom: 0.45rem; }
+  .logo-belt-mask {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
   .logo-belt-set { gap: 1.35rem; padding-right: 1.35rem; }
   .app-module { padding: 1.25rem 1.1rem 1.35rem; }
   .app-module-lead { flex-direction: column; gap: 1.1rem; }
@@ -1285,20 +1286,15 @@ html.light .work-slide-icon img {
 }
 .hobby-reel {
   margin-top: 1.15rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  overscroll-behavior-x: contain;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-x;
-  scrollbar-width: none;
+  overflow: hidden;
+  touch-action: pan-y;
   cursor: grab;
 }
-.hobby-reel.is-dragging { cursor: grabbing; }
-.hobby-reel::-webkit-scrollbar { display: none; }
 .hobby-track {
   display: flex;
   gap: 0.85rem;
   width: max-content;
+  will-change: transform;
 }
 .hobby-slide {
   position: relative;

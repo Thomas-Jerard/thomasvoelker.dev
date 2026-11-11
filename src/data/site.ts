@@ -70,6 +70,7 @@ export const cozzoVenture = {
 
 export const workplaces = [
   { id: "orilo", name: "Orilo", href: "https://orilo.io/", logo: "/images/brand/orilo.svg" },
+  { id: "cozzo", name: "Cozzo", href: "https://cozzo.io/", logo: "/images/brand/cozzo.svg" },
   { id: "mercor", name: "Mercor", href: "https://www.mercor.com/", logo: "/images/logos/mercor.webp" },
   { id: "upmc", name: "UPMC", href: "https://www.upmc.com/", logo: "/images/logos/upmc.png" },
   { id: "adpia", name: "ADPIA", href: "https://insurance.adp.com/", logo: "/images/logos/adp.webp" },
