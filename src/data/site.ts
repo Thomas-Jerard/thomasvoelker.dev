@@ -61,7 +61,7 @@ export const cozzoVenture = {
     { title: "Real-call benchmarks", body: "Timed on real phone calls." },
     { title: "Auditing", body: "A review of the voice setup you already run." },
     { title: "Affiliate program", body: "Disclosed referrals that pay when they convert." },
-    { title: "Brokerage", body: "Later. An independent third party for the buy." },
+    { title: "Brokerage", body: "As we expand, we intend to provide third party integration services." },
   ],
 } as const;
 
