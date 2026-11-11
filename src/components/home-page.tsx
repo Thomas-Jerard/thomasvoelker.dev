@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, MapPin } from "lucide-react";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { ConnectiveAppModule } from "@/components/connective-app";
 import { CozzoLive } from "@/components/cozzo-live";
 import { CozzoStack } from "@/components/cozzo-stack";
@@ -69,9 +69,9 @@ function Hero() {
         <div className="reveal reveal-delay-3 mt-7 flex flex-col gap-3 sm:flex-row">
           <CopyEmail className="w-full sm:w-auto" />
           <Button asChild variant="outline" className="w-full sm:w-auto">
-            <a href="#connective">
-              What am I up to?
-              <ArrowRight />
+            <a href="https://pittsburgh.aitinkerers.org/" target="_blank" rel="noreferrer">
+              Help form the Pittsburgh Community
+              <ArrowUpRight />
             </a>
           </Button>
         </div>
@@ -118,14 +118,6 @@ function CozzoChapter() {
           <CozzoLive />
         </div>
         <CozzoStack />
-        <div className="mt-8">
-          <Button asChild className="w-full sm:w-auto">
-            <a href={cozzoVenture.href} target="_blank" rel="noreferrer">
-              Visit cozzo.io
-              <ArrowUpRight />
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );
