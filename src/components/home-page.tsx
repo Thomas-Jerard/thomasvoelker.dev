@@ -64,7 +64,7 @@ function Hero() {
           I build cool stuff with AI
         </p>
         <p className="reveal reveal-delay-2 mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg text-pretty">
-          {site.tagline} This site is mine.
+          {site.tagline}
         </p>
         <div className="reveal reveal-delay-3 mt-7 flex flex-col gap-3 sm:flex-row">
           <CopyEmail className="w-full sm:w-auto" />

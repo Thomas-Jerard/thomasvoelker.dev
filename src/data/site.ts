@@ -15,7 +15,7 @@ export const site = {
   availability: "Available for select projects",
   headline: "I build cool stuff with AI",
   tagline:
-    "I run Orilo, I founded Cozzo Labs, and I’m building connective software for gyms and the people who train in them.",
+    "I run Cozzo and Orilo, revenue generating businesses built off agentic workflows. I aim to bring AI to Pittsburgh through meetups and demo days as the AI Tinkerers Pittsburgh Chapter organizer.",
   description:
     "Thomas Voelker, founder of Orilo and Cozzo Labs LLC, Greater Pittsburgh. He leads a founder-led, agent-backed website studio and Cozzo, an independent voice-AI agent benchmark.",
   portrait: {
